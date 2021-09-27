@@ -1,77 +1,102 @@
-package es.cic.bootcamp.curso12final.model;
+package es.cic.bootcamp.curso12final.dto;
 
 import java.util.Objects;
-
 import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import es.cic.bootcamp.curso12final.model.TipoEstancia;
 
-@Entity
-public class Estancia {
+public class EstanciaDto {
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
-	@ManyToOne
+	// Los campos de tipo-estancia
+	private Long idTipoEstancia;
+	private String nombreTipoEstancia;
 	private TipoEstancia tipoEstancia;
-	
-	//Atributos principales
-	private int numPuerta ;
-	private int numPlanta ; 
-	
-	
+
+	private int numPuerta;
+
+	private int numPlanta;
+
 	private int capacidadMaxHabitantes;
-	
+
 	private int metrosCuadrados;
-	
-	//Atributo opcional
+
 	private String nombre;
 	
-	//Complementos de la estancia
 	private boolean miniBar;
 	private boolean aireAcondicionado;
 	private boolean parking;
 	private boolean jacuzzi;
-	
-	//Disponibilidad
+
 	@Column(columnDefinition = "boolean default true")
-	private boolean disponible ;
-	
-	//Lista de campos libres como complementos extras
+	private boolean disponible;
+
 	private String listaComplementosExtras;
 	
-	
-	public Estancia() {
+	public EstanciaDto() {
 		super();
 	}
-
-	public Estancia(Long id, TipoEstancia tipoEstancia, int numPuerta, int numPlanta, String nombre,
-			boolean miniBar, boolean aireAcondicionado, boolean parking, boolean jacuzzi,
-			String listaExtras) {
+	
+	/**
+	 * Contructor de EstanciaDto utilizado para recoger un objeto, procedente del front-end en la request.
+	 * 
+	 * @param id
+	 * @param idTipoEstancia
+	 * @param nombreTipoEstancia
+	 * @param tipoEstancia
+	 * @param numPuerta
+	 * @param numPlanta
+	 * @param capacidadMaxHabitantes
+	 * @param metrosCuadrados
+	 * @param miniBar
+	 * @param aireAcondicionado
+	 * @param parking
+	 * @param jacuzzi
+	 * @param disponible
+	 * @param listaComplementosExtras
+	 */
+	public EstanciaDto(Long id, Long idTipoEstancia, String nombreTipoEstancia, TipoEstancia tipoEstancia,
+			int numPuerta, int numPlanta, int capacidadMaxHabitantes, int metrosCuadrados,
+			boolean miniBar, boolean aireAcondicionado, boolean parking, boolean jacuzzi, boolean disponible,
+			String listaComplementosExtras) {
 		super();
 		this.id = id;
+		this.idTipoEstancia = idTipoEstancia;
+		this.nombreTipoEstancia = nombreTipoEstancia;
 		this.tipoEstancia = tipoEstancia;
 		this.numPuerta = numPuerta;
-		this.numPlanta = numPlanta;
-		this.nombre = nombre;
+		this.capacidadMaxHabitantes = capacidadMaxHabitantes;
+		this.metrosCuadrados = metrosCuadrados;
 		this.miniBar = miniBar;
 		this.aireAcondicionado = aireAcondicionado;
 		this.parking = parking;
 		this.jacuzzi = jacuzzi;
-		this.listaComplementosExtras = listaExtras;
+		this.disponible = disponible;
+		this.listaComplementosExtras = listaComplementosExtras;
 	}
-	
-	
+
 	public Long getId() {
 		return id;
 	}
 
 	public void setId(Long id) {
 		this.id = id;
+	}
+
+	public Long getIdTipoEstancia() {
+		return idTipoEstancia;
+	}
+
+	public void setIdTipoEstancia(Long idTipoEstancia) {
+		this.idTipoEstancia = idTipoEstancia;
+	}
+
+	public String getNombreTipoEstancia() {
+		return nombreTipoEstancia;
+	}
+
+	public void setNombreTipoEstancia(String nombreTipoEstancia) {
+		this.nombreTipoEstancia = nombreTipoEstancia;
 	}
 
 	public TipoEstancia getTipoEstancia() {
@@ -98,6 +123,22 @@ public class Estancia {
 		this.numPlanta = numPlanta;
 	}
 
+	public int getCapacidadMaxHabitantes() {
+		return capacidadMaxHabitantes;
+	}
+
+	public void setCapacidadMaxHabitantes(int capacidadMaxHabitantes) {
+		this.capacidadMaxHabitantes = capacidadMaxHabitantes;
+	}
+
+	public int getMetrosCuadrados() {
+		return metrosCuadrados;
+	}
+
+	public void setMetrosCuadrados(int metrosCuadrados) {
+		this.metrosCuadrados = metrosCuadrados;
+	}
+	
 	public String getNombre() {
 		return nombre;
 	}
@@ -146,30 +187,6 @@ public class Estancia {
 		this.disponible = disponible;
 	}
 
-	public String getListaExtras() {
-		return listaComplementosExtras;
-	}
-
-	public void setListaExtras(String listaExtras) {
-		this.listaComplementosExtras = listaExtras;
-	}
-	
-	public int getCapacidadMaxHabitantes() {
-		return capacidadMaxHabitantes;
-	}
-
-	public void setCapacidadMaxHabitantes(int capacidadMaxHabitantes) {
-		this.capacidadMaxHabitantes = capacidadMaxHabitantes;
-	}
-
-	public int getMetrosCuadrados() {
-		return metrosCuadrados;
-	}
-
-	public void setMetrosCuadrados(int metrosCuadrados) {
-		this.metrosCuadrados = metrosCuadrados;
-	}
-
 	public String getListaComplementosExtras() {
 		return listaComplementosExtras;
 	}
@@ -177,12 +194,13 @@ public class Estancia {
 	public void setListaComplementosExtras(String listaComplementosExtras) {
 		this.listaComplementosExtras = listaComplementosExtras;
 	}
+	
+	
 
-	
-	
 	@Override
 	public String toString() {
-		return "Estancia [id=" + id + ", tipoEstancia=" + tipoEstancia + ", numPuerta=" + numPuerta + ", numPlanta="
+		return "EstanciaDto [id=" + id + ", idTipoEstancia=" + idTipoEstancia + ", nombreTipoEstancia="
+				+ nombreTipoEstancia + ", tipoEstancia=" + tipoEstancia + ", numPuerta=" + numPuerta + ", numPlanta="
 				+ numPlanta + ", capacidadMaxHabitantes=" + capacidadMaxHabitantes + ", metrosCuadrados="
 				+ metrosCuadrados + ", nombre=" + nombre + ", miniBar=" + miniBar + ", aireAcondicionado="
 				+ aireAcondicionado + ", parking=" + parking + ", jacuzzi=" + jacuzzi + ", disponible=" + disponible
@@ -202,8 +220,9 @@ public class Estancia {
             return false;
         if (getClass() != obj.getClass())
             return false;
-        Estancia other = (Estancia) obj;
+        EstanciaDto other = (EstanciaDto) obj;
         return Objects.equals(id, other.id) ;
     }
+
 	
 }
