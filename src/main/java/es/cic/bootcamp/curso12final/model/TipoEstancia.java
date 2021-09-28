@@ -17,7 +17,7 @@ public class TipoEstancia {
 	private Long id;
 
 	@Length(max=70, min=2)
-	@NotNull(message = "{!}-->DEBE RELLENAR EL CAMPO DE NOMBRE.")	
+	@NotNull(message = "{!}-->Se debe rellenar el campo de nombre.")	
 	private String nombre;
 	
 	@Length(max=256)
@@ -26,7 +26,7 @@ public class TipoEstancia {
 	@Column(columnDefinition = "boolean default true")
 	private boolean activo = true;
 	
-public TipoEstancia() {
+	public TipoEstancia() {
 		
 	}
 	public TipoEstancia(String nombre ,String descripcion) {

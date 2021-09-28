@@ -1,6 +1,7 @@
 package es.cic.bootcamp.curso12final.controller;
 
 import java.util.List;
+import java.util.logging.Logger;
 
 import javax.validation.Valid;
 
@@ -23,6 +24,9 @@ import es.cic.bootcamp.curso12final.service.EstanciaService;
 @RestController
 @RequestMapping("/estancia")
 public class EstanciaController {
+	
+	private static final Logger LOGGER = Logger.getLogger(EstanciaController.class.getName());
+	
 
 	@Autowired
 	private EstanciaService estanciaServicio;
@@ -30,6 +34,7 @@ public class EstanciaController {
 	@ResponseStatus(HttpStatus.CREATED)
 	@PostMapping
 	public Long create(@Valid @RequestBody EstanciaDto dto) {
+		LOGGER.info("Recibida una request para crear una nueva estancia.");
 		
 		return estanciaServicio.create(dto);
 		
@@ -37,6 +42,7 @@ public class EstanciaController {
 	
 	@GetMapping
 	public List<EstanciaDto> list() {
+		LOGGER.info("Recibida una request para listar las  estancias.");
 		
 		return estanciaServicio.list();
 		
@@ -44,16 +50,19 @@ public class EstanciaController {
 	
 	@GetMapping("/{id}")
 	public EstanciaDto read(@PathVariable(required = true, name = "id") Long id) {
+		LOGGER.info("Recibida una request para leer una estancia");
 		return estanciaServicio.read(id);
 	}
 	
 	@PutMapping
 	public void update(@Valid @RequestBody EstanciaDto dto) {
+		LOGGER.info("Recibida una request para editar una estancia.");
 		estanciaServicio.update(dto);
 	}
 	
 	@DeleteMapping("/{id}")
 	public void delete(@PathVariable(required = true, name = "id") Long id) {
+		LOGGER.info("Recibida una request para eliminar una estancia.");
 		estanciaServicio.delete(id);
 	}
 	
