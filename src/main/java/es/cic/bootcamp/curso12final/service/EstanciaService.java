@@ -1,4 +1,4 @@
-package es.cic.bootcampt.curso12final.service;
+package es.cic.bootcamp.curso12final.service;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -7,12 +7,12 @@ import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import es.cic.bootcamp.curso12final.dto.EstanciaDto;
+import es.cic.bootcamp.curso12final.exception.CreateEstanciaException;
+import es.cic.bootcamp.curso12final.helper.EstanciaHelper;
 import es.cic.bootcamp.curso12final.model.Estancia;
 import es.cic.bootcamp.curso12final.model.TipoEstancia;
-import es.cic.bootcampt.curso12final.exception.CreateEstanciaException;
-import es.cic.bootcampt.curso12final.helper.EstanciaHelper;
-import es.cic.bootcampt.curso12final.repository.EstanciaRepository;
-import es.cic.bootcampt.curso12final.repository.TipoEstanciaRepository;
+import es.cic.bootcamp.curso12final.repository.EstanciaRepository;
+import es.cic.bootcamp.curso12final.repository.TipoEstanciaRepository;
 
 @Service
 public class EstanciaService {

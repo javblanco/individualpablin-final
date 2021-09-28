@@ -1,4 +1,4 @@
-package es.cic.bootcampt.curso12final.repository;
+package es.cic.bootcamp.curso12final.repository;
 
 import org.springframework.data.repository.CrudRepository;
 

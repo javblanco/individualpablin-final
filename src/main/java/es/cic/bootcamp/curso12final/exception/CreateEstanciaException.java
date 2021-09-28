@@ -1,4 +1,4 @@
-package es.cic.bootcampt.curso12final.exception;
+package es.cic.bootcamp.curso12final.exception;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;

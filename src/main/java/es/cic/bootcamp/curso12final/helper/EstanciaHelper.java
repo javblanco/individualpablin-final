@@ -1,4 +1,7 @@
-package es.cic.bootcampt.curso12final.helper;
+package es.cic.bootcamp.curso12final.helper;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.validation.Valid;
 
@@ -40,6 +43,7 @@ public class EstanciaHelper {
 		
 		EstanciaDto eDto = new EstanciaDto();
 		
+		eDto.setId(e.getId());
 		eDto.setNumPuerta(e.getNumPuerta());
 		eDto.setNumPlanta(e.getNumPlanta());
 		eDto.setCapacidadMaxHabitantes(e.getCapacidadMaxHabitantes());
@@ -87,6 +91,16 @@ public class EstanciaHelper {
 		estancia.setJacuzzi(dto.isJacuzzi());
 		estancia.setDisponible(dto.isDisponible());
 		
+	}
+
+	public Object entityListToDtoList(List<Estancia> lestaEstancia) {
+		
+		List<EstanciaDto> lista = new ArrayList<>();
+
+		lestaEstancia.forEach(p -> lista.add(this.entityToDto(p)));
+
+		return lista;
+
 	}
 	
 }

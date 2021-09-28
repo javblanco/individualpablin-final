@@ -1,4 +1,4 @@
-package es.cic.bootcampt.curso12final.controller;
+package es.cic.bootcamp.curso12final.controller;
 
 import java.util.List;
 
@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 import es.cic.bootcamp.curso12final.dto.EstanciaDto;
-import es.cic.bootcampt.curso12final.service.EstanciaService;
+import es.cic.bootcamp.curso12final.service.EstanciaService;
 
 @CrossOrigin(origins = "http://localhost:4200")
 @RestController
