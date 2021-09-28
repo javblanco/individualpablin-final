@@ -1,32 +1,30 @@
-<div class="jumbotron">
-  <h2>ERP - Gestión de stock</h2>
+<div class="jumbotron bgblue">
+  <h2 class="title ">ROOMMAG</h2>
 </div>
 
 <div class="container">
   <ngb-accordion #acc="ngbAccordion">
-    <ngb-panel title="Tipo de producto" class="acc-nav" id="tipo">
+    <ngb-panel title="Modelos de Estancia" class="acc-nav" id="tipo">
       <ng-template ngbPanelContent>
-        <nav class="nav flex-column">
-          <a class="nav-link" routerLink="/tipo-producto/listar">Ver listado</a>
-          <a class="nav-link" routerLink="/tipo-producto/">Crear</a>
+        <nav class="nav flex-column fonty">
+          <a class="nav-link"  routerLink="/tipoEstancia/listar">Existentes</a>
+          <a class="nav-link" routerLink="/tipoEstancia/"> Registrar nuevo</a>
         </nav>
       </ng-template>
     </ngb-panel>
-    <ngb-panel title="Producto" class="acc-nav" id="producto">
-      <ng-template ngbPanelContent>
-        <nav class="nav flex-column">
-          <a class="nav-link" routerLink="/producto/listar">Ver listado</a>
-          <a class="nav-link" routerLink="/producto/">Crear</a>
-        </nav>
-      </ng-template>
-    </ngb-panel>
-    <ngb-panel title="Gestión de stock" class="acc-nav" id="transferir">
-      <ng-template ngbPanelContent>
-        <nav class="nav flex-column">
+</ngb-accordion>
+</div>
 
-          <a class="nav-link" routerLink="/transferir/">Pasar a tienda</a>
-          <a class="nav-link" routerLink="/devolver/">Devolver al almacén</a>
-          <a class="nav-link" routerLink="/reponer/">Reponer almacén</a>
+<br>
+<br>
+
+<div class="container">
+  <ngb-accordion #acc="ngbAccordion">
+    <ngb-panel title="Estancias" class="acc-nav" id="producto">
+      <ng-template ngbPanelContent >
+        <nav class="nav flex-column fonty">
+          <a class="nav-link" routerLink="/producto/listar">Existentes</a>
+          <a class="nav-link" routerLink="/producto/">Registrar nueva</a>
         </nav>
       </ng-template>
     </ngb-panel>
