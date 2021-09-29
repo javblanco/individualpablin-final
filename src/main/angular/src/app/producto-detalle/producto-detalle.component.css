@@ -1,0 +1,22 @@
+.title{
+    text-align: center;
+    font-size: 70px;
+    font-family: cursive;
+}
+
+.fonty{
+    font-size: 20px;
+    font-family: cursive;
+}
+
+.bgblue{
+    background-color: DodgerBlue;
+}
+
+.bggray {
+    background-color: gray;
+}
+
+.bggreen{
+    background-color: lightgreen;
+}

@@ -1,5 +1,7 @@
 <div class="jumbotron bgblue">
-    <h2 class="title " id="titulo-tipo-producto-maestro">Modelos de Estancia Registrados</h2>
+    <h2 class="title " id="titulo-tipo-producto-maestro">
+        Modelos de Estancia Registrados
+    </h2>
 </div>
 
 
@@ -18,7 +20,7 @@
 <table id="tabla-tipo-producto" class="table mb-5">
     <thead>
         <tr class="bggreen">
-            <th>Nombre</th>
+            <th class="fonty">Nombre</th>
             <th *ngIf="filtrado">Activo</th>
             <th></th>
         </tr>
@@ -27,7 +29,7 @@
         <tr *ngFor="let tipo of tipos">
             <td>{{tipo.nombre}}</td>
             <td *ngIf="filtrado">{{tipo.activo}}</td>
-            <td><a routerLink="../{{tipo.id}}" (click)="ver()" class="tipo-ver btn btn-info mr-3">Info</a>
+            <td><a routerLink="../{{tipo.id}}" (click)="ver()" class="tipo-ver btn btn-info mr-3 ">Info</a>
                 <a routerLink="../{{tipo.id}}" class="tipo-modificar btn btn-primary">Modificar</a></td>
         </tr>
     </tbody>

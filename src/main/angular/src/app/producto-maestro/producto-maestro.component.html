@@ -8,12 +8,13 @@
     
 <table id="tabla-producto" class="table mb-5">
     <thead>
-        <tr>
+        <tr class="bggreen fonty">
             <th>Modelo</th>
-            <th>Num</th>
-            <th>max Per</th>
-            <th>m^2</th>
-            <th>Disponibilidad</th>
+            <th>Ref</th>
+            <th>Plazas</th>
+            <th>Superficie</th>
+            <th>Disponible</th>
+            <th>Extras</th>
             <th>Acciones</th>
         </tr>
     </thead>
@@ -21,6 +22,7 @@
         <tr *ngFor="let producto of productos">
             <td>{{producto.nombre}}</td>
             <td>{{producto.modelo}}</td>
+            <td>{{producto.marca}}</td>
             <td>{{producto.marca}}</td>
             <td>{{producto.marca}}</td>
             <td>{{producto.nombreTipoProducto}}</td>
