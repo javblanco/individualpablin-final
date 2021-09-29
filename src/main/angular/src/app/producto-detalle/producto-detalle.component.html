@@ -21,7 +21,7 @@
   <form #estanciaForm="ngForm">
     
     <label for="estancia-tipo" class="fonty">Modelo Estancia: </label>
-    <select [(ngModel)]="estancia.idTipoProducto" name="tipo" id="estancia-tipo" #estancia_tipo="ngModel" name="tipo"
+    <select [(ngModel)]="estancia.idTipoEstancia" name="tipo" id="estancia-tipo" #estancia_tipo="ngModel" name="tipo"
       class="form-control" [disabled]="lectura" required>
       <option value="undefined" disabled selected>Seleccione una opción</option>
       <option *ngFor="let tipo of listaTipos" [ngValue]="tipo.id">{{tipo.nombre}}</option>

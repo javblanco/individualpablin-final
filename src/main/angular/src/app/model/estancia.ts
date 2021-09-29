@@ -1,7 +1,7 @@
 export interface Estancia {
     id: number;
-    idTipoProducto: number;
-    nombreTipoProducto: string;
+    idTipoEstancia: number;
+    nombreTipoEstancia: string;
     ref: string;
     planta: number;
     puerta: number;
