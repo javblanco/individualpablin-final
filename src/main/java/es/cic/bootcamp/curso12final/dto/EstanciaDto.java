@@ -13,25 +13,25 @@ public class EstanciaDto {
 	private String nombreTipoEstancia;
 	private TipoEstancia tipoEstancia;
 
-	private int numPuerta;
+	private int puerta;
 
-	private int numPlanta;
+	private int planta;
 
-	private int capacidadMaxHabitantes;
+	private int plazas; //TODO CORREGIR A PLAZAS
 
-	private int metrosCuadrados;
+	private int superficie;
 
 	private String nombre;
 	
-	private boolean miniBar;
-	private boolean aireAcondicionado;
+	private boolean minibar; 		//TODO MOSTRAR EN FORMA DE ICONITOS
+	private boolean aireacondicionado;
 	private boolean parking;
 	private boolean jacuzzi;
 
 	@Column(columnDefinition = "boolean default true")
 	private boolean disponible;
 
-	private String listaComplementosExtras;
+	private String complementos;
 	
 	public EstanciaDto() {
 		super();
@@ -64,15 +64,15 @@ public class EstanciaDto {
 		this.idTipoEstancia = idTipoEstancia;
 		this.nombreTipoEstancia = nombreTipoEstancia;
 		this.tipoEstancia = tipoEstancia;
-		this.numPuerta = numPuerta;
-		this.capacidadMaxHabitantes = capacidadMaxHabitantes;
-		this.metrosCuadrados = metrosCuadrados;
-		this.miniBar = miniBar;
-		this.aireAcondicionado = aireAcondicionado;
+		this.puerta = numPuerta;
+		this.plazas = capacidadMaxHabitantes;
+		this.superficie = metrosCuadrados;
+		this.minibar = miniBar;
+		this.aireacondicionado = aireAcondicionado;
 		this.parking = parking;
 		this.jacuzzi = jacuzzi;
 		this.disponible = disponible;
-		this.listaComplementosExtras = listaComplementosExtras;
+		this.complementos = listaComplementosExtras;
 	}
 
 	public Long getId() {
@@ -108,35 +108,35 @@ public class EstanciaDto {
 	}
 
 	public int getNumPuerta() {
-		return numPuerta;
+		return puerta;
 	}
 
 	public void setNumPuerta(int numPuerta) {
-		this.numPuerta = numPuerta;
+		this.puerta = numPuerta;
 	}
 
 	public int getNumPlanta() {
-		return numPlanta;
+		return planta;
 	}
 
 	public void setNumPlanta(int numPlanta) {
-		this.numPlanta = numPlanta;
+		this.planta = numPlanta;
 	}
 
 	public int getCapacidadMaxHabitantes() {
-		return capacidadMaxHabitantes;
+		return plazas;
 	}
 
 	public void setCapacidadMaxHabitantes(int capacidadMaxHabitantes) {
-		this.capacidadMaxHabitantes = capacidadMaxHabitantes;
+		this.plazas = capacidadMaxHabitantes;
 	}
 
 	public int getMetrosCuadrados() {
-		return metrosCuadrados;
+		return superficie;
 	}
 
 	public void setMetrosCuadrados(int metrosCuadrados) {
-		this.metrosCuadrados = metrosCuadrados;
+		this.superficie = metrosCuadrados;
 	}
 	
 	public String getNombre() {
@@ -148,19 +148,19 @@ public class EstanciaDto {
 	}
 
 	public boolean isMiniBar() {
-		return miniBar;
+		return minibar;
 	}
 
 	public void setMiniBar(boolean miniBar) {
-		this.miniBar = miniBar;
+		this.minibar = miniBar;
 	}
 
 	public boolean isAireAcondicionado() {
-		return aireAcondicionado;
+		return aireacondicionado;
 	}
 
 	public void setAireAcondicionado(boolean aireAcondicionado) {
-		this.aireAcondicionado = aireAcondicionado;
+		this.aireacondicionado = aireAcondicionado;
 	}
 
 	public boolean isParking() {
@@ -188,11 +188,11 @@ public class EstanciaDto {
 	}
 
 	public String getListaComplementosExtras() {
-		return listaComplementosExtras;
+		return complementos;
 	}
 
 	public void setListaComplementosExtras(String listaComplementosExtras) {
-		this.listaComplementosExtras = listaComplementosExtras;
+		this.complementos = listaComplementosExtras;
 	}
 	
 	
@@ -200,11 +200,11 @@ public class EstanciaDto {
 	@Override
 	public String toString() {
 		return "EstanciaDto [id=" + id + ", idTipoEstancia=" + idTipoEstancia + ", nombreTipoEstancia="
-				+ nombreTipoEstancia + ", tipoEstancia=" + tipoEstancia + ", numPuerta=" + numPuerta + ", numPlanta="
-				+ numPlanta + ", capacidadMaxHabitantes=" + capacidadMaxHabitantes + ", metrosCuadrados="
-				+ metrosCuadrados + ", nombre=" + nombre + ", miniBar=" + miniBar + ", aireAcondicionado="
-				+ aireAcondicionado + ", parking=" + parking + ", jacuzzi=" + jacuzzi + ", disponible=" + disponible
-				+ ", listaComplementosExtras=" + listaComplementosExtras + "]";
+				+ nombreTipoEstancia + ", tipoEstancia=" + tipoEstancia + ", numPuerta=" + puerta + ", numPlanta="
+				+ planta + ", capacidadMaxHabitantes=" + plazas + ", metrosCuadrados="
+				+ superficie + ", nombre=" + nombre + ", miniBar=" + minibar + ", aireAcondicionado="
+				+ aireacondicionado + ", parking=" + parking + ", jacuzzi=" + jacuzzi + ", disponible=" + disponible
+				+ ", listaComplementosExtras=" + complementos + "]";
 	}
 
 	@Override

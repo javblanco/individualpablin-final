@@ -28,7 +28,6 @@ public class Estancia {
 	
 	private int metrosCuadrados;
 	
-	//Atributo opcional
 	private String nombre;
 	
 	//Complementos de la estancia
