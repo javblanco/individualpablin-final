@@ -2,14 +2,14 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
-import { Producto } from '../model/producto';
+import { Estancia } from '../model/estancia';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProductoService {
 
-  url = `${environment.host}/api/producto`;
+  url = `${environment.host}/estancia`;
   
   lectura = false;
 
@@ -19,28 +19,28 @@ export class ProductoService {
 
   constructor(private http: HttpClient) { }
 
-  getProductos(): Observable<Producto[]> {
-    return this.http.get<Producto[]>(this.url);
+  getProductos(): Observable<Estancia[]> {
+    return this.http.get<Estancia[]>(this.url);
   }
 
-  getProducto(id: number): Observable<Producto> {
+  getProducto(id: number): Observable<Estancia> {
     let idUrl = `${this.url}/${id}`;
 
-    return this.http.get<Producto>(idUrl);
+    return this.http.get<Estancia>(idUrl);
   }
 
-  crearProducto(producto: Producto): Observable<number> {
-    return this.http.post<number>(this.url, producto, this.options);
+  crearProducto(estancia: Estancia): Observable<number> {
+    return this.http.post<number>(this.url, estancia, this.options);
   }
 
-  modificarProducto(producto: Producto): Observable<any> {
-    return this.http.put(this.url, producto, this.options);
+  modificarProducto(estancia: Estancia): Observable<any> {
+    return this.http.put(this.url, estancia, this.options);
   }
 
-  getProductosTipoActivo(): Observable<Producto[]> {
+  getProductosTipoActivo(): Observable<Estancia[]> {
     const urlActivo = `${this.url}/tipo-activo`;
     
-    return this.http.get<Producto[]>(urlActivo);
+    return this.http.get<Estancia[]>(urlActivo);
   }
   activarSoloLectura(): void {
     this.lectura = true;
@@ -50,13 +50,13 @@ export class ProductoService {
     this.lectura = false;
   }
 
-  getProductosAlmacen(): Observable<Producto[]> {
+  getProductosAlmacen(): Observable<Estancia[]> {
     let almacenUrl = `${this.url}/almacen`;
-    return this.http.get<Producto[]>(almacenUrl);
+    return this.http.get<Estancia[]>(almacenUrl);
   }
 
-  getProductosTienda(): Observable<Producto[]> {
+  getProductosTienda(): Observable<Estancia[]> {
     let tiendaUrl = `${this.url}/tienda`;
-    return this.http.get<Producto[]>(tiendaUrl);
+    return this.http.get<Estancia[]>(tiendaUrl);
   }
 }

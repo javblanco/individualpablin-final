@@ -1,6 +1,6 @@
 import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { Producto } from '../model/producto';
+import { Estancia } from '../model/estancia';
 import { ProductoService } from '../service/producto.service';
 
 @Component({
@@ -10,7 +10,7 @@ import { ProductoService } from '../service/producto.service';
 })
 export class ProductoMaestroComponent implements OnInit {
 
-  productos: Producto[] = [];
+  estancias: Estancia[] = [];
 
   filtro = 1;
 
@@ -27,8 +27,8 @@ export class ProductoMaestroComponent implements OnInit {
   getProductos(): void {
     this.service.getProductos()
     .subscribe(
-      productos => {
-      this.productos = productos;
+      estancias => {
+      this.estancias = estancias;
       this.filtrado = 1;
       }
     )
@@ -47,14 +47,14 @@ export class ProductoMaestroComponent implements OnInit {
       this.getProductos();
     } else if(this.filtro === 2) {
       this.service.getProductosAlmacen()
-      .subscribe(productos => {
-        this.productos = productos;
+      .subscribe(estancias => {
+        this.estancias = estancias;
         this.filtrado = 2;
       });
     } else if(this.filtro === 3) {
       this.service.getProductosTienda()
-      .subscribe(productos => {
-        this.productos = productos;
+      .subscribe(estancias => {
+        this.estancias = estancias;
         this.filtrado = 3;
       });
     }

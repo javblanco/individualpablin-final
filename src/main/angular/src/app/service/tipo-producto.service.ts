@@ -9,7 +9,7 @@ import { TipoProducto } from '../model/tipoProducto';
 })
 export class TipoProductoService {
 
-  url = `${environment.host}/api/tipo-producto`;
+  url = `${environment.host}/tipoEstancia`;
 
   lectura = false;
 
@@ -59,7 +59,7 @@ export class TipoProductoService {
   }
 
   getTiposActivos(): Observable<TipoProducto[]> {
-    const activoUrl = `${this.url}/activo`;
+    const activoUrl = `${this.url}`;
 
     return this.http.get<TipoProducto[]>(activoUrl);
   }

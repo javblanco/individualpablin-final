@@ -6,38 +6,28 @@
 
 
 <div class="container">
-    <div class="form-inline float-right">
-        <div class="form-group mx-sm-3 mb-2">
-        <select id="select-filtrar-tipo" class="form-control" [(ngModel)]="filtro">
-            <option selected [ngValue]="1">Disponibles</option>
-            <option [ngValue]="2">Todos</option>
-        </select>
-    </div>
-    <button type="submit" class="btn btn-info mb-2" id="boton-filtrar-tipo" (click)="filtrar()">Filtrar</button>
-</div>
+    
+    <table id="tabla-tipo-producto" class="table mb-5">
+        <thead>
+            <tr class="bggreen">
+                <th class="fonty">Nombre</th>
+                <th class="fonty">Status</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let tipo of tipos">
+                <td>{{tipo.nombre}}</td>
+                <td>{{tipo.activo}}</td>
+                <td><a routerLink="../{{tipo.id}}" (click)="ver()" class="tipo-ver btn btn-info mr-3 ">Info</a>
+                    <a routerLink="../{{tipo.id}}" class="tipo-modificar btn btn-primary">Modificar</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
 
+    <a routerLink="../" id="crear-tipo" class="btn btn-primary float-left">Registrar Nuevo</a>
 
-<table id="tabla-tipo-producto" class="table mb-5">
-    <thead>
-        <tr class="bggreen">
-            <th class="fonty">Nombre</th>
-            <th *ngIf="filtrado">Activo</th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr *ngFor="let tipo of tipos">
-            <td>{{tipo.nombre}}</td>
-            <td *ngIf="filtrado">{{tipo.activo}}</td>
-            <td><a routerLink="../{{tipo.id}}" (click)="ver()" class="tipo-ver btn btn-info mr-3 ">Info</a>
-                <a routerLink="../{{tipo.id}}" class="tipo-modificar btn btn-primary">Modificar</a></td>
-        </tr>
-    </tbody>
-</table>
-
-<a routerLink="../" id="crear-tipo" class="btn btn-primary float-left">Registrar Nuevo</a>
-
-<button id="volver-listado-tipo" (click)="volver()" class="btn btn-secondary float-right">Salir</button>
+    <button id="volver-listado-tipo" (click)="volver()" class="btn btn-secondary float-right">Salir</button>
 
 </div>
-

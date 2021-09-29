@@ -4,25 +4,25 @@
 
 <div class="container">
   <label>Seleccione el producto: </label>
-<select class="form-control mb-5" id="select-producto" [(ngModel)]="productoSeleccionado" (ngModelChange)="cargarProducto($event)">
+<select class="form-control mb-5" id="select-producto" [(ngModel)]="estanciaSeleccionado" (ngModelChange)="cargarProducto($event)">
     <option [ngValue] disabled selected >Seleccione una opción</option>
-  <option  *ngFor="let producto of productos" [ngValue]="producto" [selected]="productoSeleccionado == producto">
-    {{producto.nombre}}
+  <option  *ngFor="let estancia of estancias" [ngValue]="estancia" [selected]="estanciaSeleccionado == estancia">
+    {{estancia.nombre}}
     </option>
 </select>
 
 <form #transferenciaForm="ngForm" appValidacionTransferencia>
 
- <h3>{{productoT.nombre}}</h3>
+ <h3>{{estanciaT.nombre}}</h3>
 <label>Cantidad de stock en el almácen:</label>
-<input type="number" class="form-control" id="cantidad-almacen" name="cantidad_almacen" [ngModel]="productoT.cantidadUnidadesAlmacen" disabled><br>
+<input type="number" class="form-control" id="cantidad-almacen" name="cantidad_almacen" [ngModel]="estanciaT.puerta" disabled><br>
 <label>Cantidad de stock en la tienda:</label>
-<input type="number" class="form-control" id="cantidad-tienda" name="cantidad_tienda" [ngModel]="productoT.cantidadUnidadesTienda" disabled><br>
+<input type="number" class="form-control" id="cantidad-tienda" name="cantidad_tienda" [ngModel]="estanciaT.planta" disabled><br>
 
 <label>Cantidad de stock a <span *ngIf="accion == 'tranferir'">traspasar</span>
   <span *ngIf="accion == 'devolver'">devolver</span>
   <span *ngIf="accion == 'reponer'">reponer</span>:</label>
-<input type="number" class="form-control" id="cantidad-traspasar" name="cantidad_traspasar" #cantidad_traspasar="ngModel" [disabled]="!productoT.id"  [(ngModel)]="cantidad" min="0"><br>
+<input type="number" class="form-control" id="cantidad-traspasar" name="cantidad_traspasar" #cantidad_traspasar="ngModel" [disabled]="!estanciaT.id"  [(ngModel)]="cantidad" min="0"><br>
 
 <input type="hidden" name="accion" [(ngModel)]="accion"/>
 <div *ngIf="cantidad_traspasar.errors?.min" class="alert alert-danger">
@@ -42,7 +42,7 @@ No se admiten números negativos
 </div>
 </div>
 
-<button id="transferir-guardar" (click)="transferir(transferenciaForm.invalid)" type="submit" [disabled]="!productoT.id" class="btn btn-primary float-left">
+<button id="transferir-guardar" (click)="transferir(transferenciaForm.invalid)" type="submit" [disabled]="!estanciaT.id" class="btn btn-primary float-left">
   <span *ngIf="accion == 'transferir'">Traspasar</span>
   <span *ngIf="accion == 'devolver'">Devolver</span>
   <span *ngIf="accion == 'reponer'">Reponer</span>

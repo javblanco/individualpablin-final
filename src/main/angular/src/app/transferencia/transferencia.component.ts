@@ -6,7 +6,7 @@ import { ModalDevolverComponent } from '../modal/modal-devolver/modal-devolver.c
 import { ModalReponerComponent } from '../modal/modal-reponer/modal-reponer.component';
 import { ModalTransferirComponent } from '../modal/modal-transferir/modal-transferir.component';
 import { ModalVolverComponent } from '../modal/modal-volver/modal-volver.component';
-import { Producto } from '../model/producto';
+import { Estancia } from '../model/estancia';
 import { ProductoService } from '../service/producto.service';
 import { TransferenciaService } from '../service/transferencia.service';
 
@@ -18,17 +18,17 @@ import { TransferenciaService } from '../service/transferencia.service';
 export class TransferenciaComponent implements OnInit {
 
   accion: string;
-  productos: Producto[] = [];
+  estancias: Estancia[] = [];
 
   cantidad: number;
 
-  productoT = <Producto>{};
+  estanciaT = <Estancia>{};
 
-  productoSeleccionado = <Producto>{};
+  estanciaSeleccionado = <Estancia>{};
 
   invalido = false;
 
-  constructor(private productoService: ProductoService,
+  constructor(private estanciaService: ProductoService,
     private transferenciaService: TransferenciaService,
     private modalService: NgbModal,
     private location: Location,
@@ -43,11 +43,11 @@ export class TransferenciaComponent implements OnInit {
 
   listarProductos(): void {
     if(this.accion !== 'reponer') {
-      this.productoService.getProductos()
-      .subscribe(productos => this.productos = productos);
+      this.estanciaService.getProductos()
+      .subscribe(estancias => this.estancias = estancias);
     } else {
-      this.productoService.getProductosTipoActivo()
-      .subscribe(productos => this.productos = productos);
+      this.estanciaService.getProductosTipoActivo()
+      .subscribe(estancias => this.estancias = estancias);
     }
     
   }
@@ -59,8 +59,8 @@ export class TransferenciaComponent implements OnInit {
     );
   }
 
-  cargarProducto(producto: Producto) {
-    this.productoT = producto;
+  cargarProducto(estancia: Estancia) {
+    this.estanciaT = estancia;
   }
 
   transferir(invalido: boolean | null) : void {
@@ -75,31 +75,31 @@ export class TransferenciaComponent implements OnInit {
   ejecutarAccion(): void {
     if(this.accion === 'transferir') {
       this.crearModal(ModalTransferirComponent).result.then(
-        () => this.transferenciaService.transferir(this.productoT.id, this.cantidad)
+        () => this.transferenciaService.transferir(this.estanciaT.id, this.cantidad)
         .subscribe(() =>  {
           this.seleccionarProducto();
-          this.productoT= <Producto>{};
-          this.productoSeleccionado= <Producto>{};
+          this.estanciaT= <Estancia>{};
+          this.estanciaSeleccionado= <Estancia>{};
         })
       );
       
     } else if(this.accion === 'devolver') {
       this.crearModal(ModalDevolverComponent).result.then(
-        () => this.transferenciaService.devolver(this.productoT.id, this.cantidad)
+        () => this.transferenciaService.devolver(this.estanciaT.id, this.cantidad)
         .subscribe(() => {
           this.seleccionarProducto();
-          this.productoT= <Producto>{};
-          this.productoSeleccionado= <Producto>{};
+          this.estanciaT= <Estancia>{};
+          this.estanciaSeleccionado= <Estancia>{};
         })
       );
 
     } else if(this.accion === 'reponer') {
       this.crearModal(ModalReponerComponent).result.then(
-        () => this.transferenciaService.reponer(this.productoT.id, this.cantidad)
+        () => this.transferenciaService.reponer(this.estanciaT.id, this.cantidad)
         .subscribe(() =>  {
           this.seleccionarProducto();
-          this.productoT= <Producto>{};
-          this.productoSeleccionado= <Producto>{};
+          this.estanciaT= <Estancia>{};
+          this.estanciaSeleccionado= <Estancia>{};
         })
       );
     }
@@ -108,16 +108,16 @@ export class TransferenciaComponent implements OnInit {
 crearModal(modal: any): NgbModalRef {
   let modalRef = this.modalService.open(modal);
   modalRef.componentInstance.cantidad = this.cantidad;
-  modalRef.componentInstance.nombre = this.productoT.nombre;
+  modalRef.componentInstance.nombre = this.estanciaT.nombre;
 
   return modalRef;
 }
   seleccionarProducto(): void {
-    this.productoService.getProducto(this.productoT.id)
-    .subscribe(producto =>{ 
+    this.estanciaService.getProducto(this.estanciaT.id)
+    .subscribe(estancia =>{ 
       this.listarProductos();
-      this.productoT = producto;
-      this.productoSeleccionado = producto;
+      this.estanciaT = estancia;
+      this.estanciaSeleccionado = estancia;
       this.cantidad = 0;
     });
 

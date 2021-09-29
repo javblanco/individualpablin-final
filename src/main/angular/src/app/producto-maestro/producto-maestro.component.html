@@ -6,7 +6,7 @@
 
 <div class="container container-xl">
     
-<table id="tabla-producto" class="table mb-5">
+<table id="tabla-estancia" class="table mb-5">
     <thead>
         <tr class="bggreen fonty">
             <th>Modelo</th>
@@ -19,21 +19,21 @@
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let producto of productos">
-            <td>{{producto.nombre}}</td>
-            <td>{{producto.modelo}}</td>
-            <td>{{producto.marca}}</td>
-            <td>{{producto.marca}}</td>
-            <td>{{producto.marca}}</td>
-            <td>{{producto.nombreTipoProducto}}</td>
-            <td><a routerLink="../{{producto.id}}" (click)="ver()" class="producto-ver btn btn-block btn-info mr-3 mb-1">Ver</a>
-                <a routerLink="../{{producto.id}}" class="producto-modificar btn btn-block btn-primary">Modificar</a></td>
+        <tr *ngFor="let estancia of estancias">
+            <td>{{estancia.nombreTipoProducto}}</td>
+            <td>{{estancia.ref}}</td>
+            <td>{{estancia.plazas}}</td>
+            <td>{{estancia.superficie}}</td>
+            <td>{{estancia.disponible}}</td>
+            <td>{{estancia.complementos}}</td>
+            <td><a routerLink="../{{estancia.id}}" (click)="ver()" class="estancia-ver btn btn-block btn-info mr-3 mb-1">Ver</a>
+                <a routerLink="../{{estancia.id}}" class="estancia-modificar btn btn-block btn-primary">Modificar</a></td>
         </tr>
     </tbody>
 </table>
 
 
-<a routerLink="../" id="crear-producto" class="btn btn-primary float-left">Crear</a>
-<button id="volver-listado-producto" (click)="volver()" class="btn btn-secondary float-right">Volver</button>
+<a routerLink="../" id="crear-estancia" class="btn btn-primary float-left">Crear</a>
+<button id="volver-listado-estancia" (click)="volver()" class="btn btn-secondary float-right">Volver</button>
 
 </div>

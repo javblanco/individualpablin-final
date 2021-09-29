@@ -4,7 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ModalModificarComponent } from '../modal/modal-modificar/modal-modificar.component';
 import { ModalVolverComponent } from '../modal/modal-volver/modal-volver.component';
-import { Producto } from '../model/producto';
+import { Estancia } from '../model/estancia';
 import { TipoProducto } from '../model/tipoProducto';
 import { ProductoService } from '../service/producto.service';
 import { TipoProductoService } from '../service/tipo-producto.service';
@@ -16,7 +16,7 @@ import { TipoProductoService } from '../service/tipo-producto.service';
 })
 export class ProductoDetalleComponent implements OnInit {
 
-  producto = <Producto>{};
+  estancia = <Estancia>{};
 
   listaTipos: TipoProducto[] = [];
 
@@ -25,7 +25,7 @@ export class ProductoDetalleComponent implements OnInit {
   lectura = false;
 
   constructor(
-    private productoService: ProductoService,
+    private estanciaService: ProductoService,
     private tipoService: TipoProductoService,
     private router: ActivatedRoute,
     private location: Location,
@@ -46,17 +46,17 @@ export class ProductoDetalleComponent implements OnInit {
     let id = Number(this.router.snapshot.paramMap.get('id'));
 
     if(id) {
-      this.productoService.getProducto(id)
+      this.estanciaService.getProducto(id)
       .subscribe(
-        producto => this.producto = producto
+        estancia => this.estancia = estancia
       );
 
-      this.lectura = this.productoService.lectura;
+      this.lectura = this.estanciaService.lectura;
     } 
   }
 
   guardar(): void {
-    if(this.producto.id) {
+    if(this.estancia.id) {
       this.modalService.open(ModalModificarComponent)
       .result.then(
         () => this.modificar()
@@ -79,10 +79,10 @@ export class ProductoDetalleComponent implements OnInit {
   }
 
   crear(): void {
-    this.productoService.crearProducto(this.producto)
+    this.estanciaService.crearProducto(this.estancia)
     .subscribe(
-      producto => {
-        this.producto.id = producto;
+      estancia => {
+        this.estancia.id = estancia;
         this.mensaje='Se ha creado el producto';
       }
     );
@@ -90,7 +90,7 @@ export class ProductoDetalleComponent implements OnInit {
   }
 
   modificar() :void {
-    this.productoService.modificarProducto(this.producto)
+    this.estanciaService.modificarProducto(this.estancia)
     .subscribe(() => this.mensaje='Se ha modificado el producto');
     
   }
