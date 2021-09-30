@@ -36,12 +36,13 @@ export class ProductoService {
   modificarProducto(estancia: Estancia): Observable<any> {
     return this.http.put(this.url, estancia, this.options);
   }
-
+  /*
   getProductosTipoActivo(): Observable<Estancia[]> {
     const urlActivo = `${this.url}/tipo-activo`;
     
     return this.http.get<Estancia[]>(urlActivo);
   }
+  */
   activarSoloLectura(): void {
     this.lectura = true;
   }
@@ -50,13 +51,16 @@ export class ProductoService {
     this.lectura = false;
   }
 
-  getProductosAlmacen(): Observable<Estancia[]> {
-    let almacenUrl = `${this.url}/almacen`;
-    return this.http.get<Estancia[]>(almacenUrl);
+
+  activarEstancia(id: number): Observable<any> {
+    const idUrl = `${this.url}/activar/${id}`;
+
+    return this.http.post(idUrl, this.options);
   }
 
-  getProductosTienda(): Observable<Estancia[]> {
-    let tiendaUrl = `${this.url}/tienda`;
-    return this.http.get<Estancia[]>(tiendaUrl);
+  desactivarEstancia(id: number): Observable<any> {
+    const idUrl = `${this.url}/desactivar/${id}`;
+
+    return this.http.post(idUrl, this.options);
   }
 }
