@@ -9,8 +9,8 @@
 <table id="tabla-estancia" class="table mb-5">
     <thead>
         <tr class="bggreen fonty">
-            <th>Modelo</th>
             <th>Ref</th>
+            <th>Modelo</th>
             <th>Plazas</th>
             <th>Superficie</th>
             <th>Disponible</th>
@@ -20,8 +20,8 @@
     </thead>
     <tbody>
         <tr *ngFor="let estancia of estancias">
-            <td>{{estancia.nombreTipoEstancia}}</td>
             <td>{{estancia.ref}}</td>
+            <td>{{estancia.nombreTipoEstancia}}</td>
             <td>{{estancia.plazas}}</td>
             <td>{{estancia.superficie}}</td>
             <td>{{estancia.disponible}}</td>

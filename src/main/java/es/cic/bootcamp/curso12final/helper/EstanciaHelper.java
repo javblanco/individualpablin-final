@@ -60,6 +60,7 @@ public class EstanciaHelper {
 
 		if (e.getTipoEstancia() != null) {
 			eDto.setIdTipoEstancia(e.getTipoEstancia().getId());
+			eDto.setNombreTipoEstancia(e.getTipoEstancia().getNombre());
 			eDto.setTipoEstancia(e.getTipoEstancia());
 		}
 		
