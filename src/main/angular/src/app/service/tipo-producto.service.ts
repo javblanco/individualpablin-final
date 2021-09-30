@@ -19,11 +19,6 @@ export class TipoProductoService {
 
   constructor(private http: HttpClient) { }
 
-  getTipos(): Observable<TipoEstancia[]> {
-
-    return this.http.get<TipoEstancia[]>(this.url);
-  }
-
   getTipo(id: number): Observable<TipoEstancia> {
     const idUrl = `${this.url}/${id}`;
     
@@ -58,8 +53,13 @@ export class TipoProductoService {
     this.lectura = false;
   }
 
+  getTipos(): Observable<TipoEstancia[]> {
+
+    return this.http.get<TipoEstancia[]>(this.url);
+  }
+
   getTiposActivos(): Observable<TipoEstancia[]> {
-    const activoUrl = `${this.url}/activo`;
+    const activoUrl = `${this.url}/activo`; //si le quito se ven todos 
 
     return this.http.get<TipoEstancia[]>(activoUrl);
   }

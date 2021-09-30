@@ -16,7 +16,7 @@
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let tipo of tipos">
+            <tr *ngFor="let tipo of tiposTodos">
                 <td>{{tipo.nombre}}</td>
                 <td><div *ngIf="tipo.activo; else NoPri">Activo</div>
                     <ng-template #NoPri>Inactivo</ng-template></td>

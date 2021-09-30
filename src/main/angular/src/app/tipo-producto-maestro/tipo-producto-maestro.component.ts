@@ -12,16 +12,19 @@ export class TipoProductoMaestroComponent implements OnInit {
 
   tipos: TipoEstancia[] = [];
 
+  tiposTodos: TipoEstancia[] = [];
+
   visible = false;
 
-  filtro = 1;
-  filtrado = false;
+  //filtro = 1;
+  //filtrado = false;
 
   constructor(private tipoService: TipoProductoService,
     private location: Location) { }
 
   ngOnInit(): void {
     this.getTipos();
+    this.getTiposTodos();
     this.tipoService.desactivarSoloLectura();
   }
 
@@ -29,7 +32,15 @@ export class TipoProductoMaestroComponent implements OnInit {
     this.tipoService.getTiposActivos()
     .subscribe(tipos => {
       this.tipos = tipos;
-      this.filtrado = false;
+      //this.filtrado = false;
+    });
+  }
+
+  getTiposTodos(): void {
+    this.tipoService.getTipos()
+    .subscribe(tiposTodos => {
+      this.tiposTodos = tiposTodos;
+      //this.filtrado = false;
     });
   }
 
@@ -41,15 +52,4 @@ export class TipoProductoMaestroComponent implements OnInit {
     this.tipoService.activarSoloLectura();
   }
 
-  filtrar(): void {
-    if(this.filtro === 1) {
-      this.getTipos();
-    } else if(this.filtro === 2) {
-      this.tipoService.getTipos()
-    .subscribe(tipos => {
-      this.tipos = tipos;
-      this.filtrado = true;
-    });
-    }
-  }
 }
