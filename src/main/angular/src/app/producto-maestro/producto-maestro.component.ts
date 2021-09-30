@@ -42,21 +42,4 @@ export class ProductoMaestroComponent implements OnInit {
     this.service.activarSoloLectura();
   }
 
-  filtrar(): void {
-    if(this.filtro === 1) {
-      this.getProductos();
-    } else if(this.filtro === 2) {
-      this.service.getProductosAlmacen()
-      .subscribe(estancias => {
-        this.estancias = estancias;
-        this.filtrado = 2;
-      });
-    } else if(this.filtro === 3) {
-      this.service.getProductosTienda()
-      .subscribe(estancias => {
-        this.estancias = estancias;
-        this.filtrado = 3;
-      });
-    }
-  }
 }

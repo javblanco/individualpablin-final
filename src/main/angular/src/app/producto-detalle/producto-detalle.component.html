@@ -121,8 +121,8 @@
 
         <span *ngIf="!lectura">
             <span *ngIf="estancia.disponible; then desactivar_tipo else activar_tipo">será ignorado</span> 
-                <ng-template #desactivar_tipo><button id="tipo-activo" class="btn btn-danger" [disabled]="!estanciaForm.form.valid" (click)="cambiarActivo()">Desactivar</button></ng-template> 
-                <ng-template #activar_tipo><button id="tipo-activo" class="btn btn-success" [disabled]="!estanciaForm.form.valid" (click)="cambiarActivo()">Activar</button></ng-template> 
+                <ng-template #desactivar_tipo><button id="estacia-activo" class="btn btn-danger" [disabled]="!estanciaForm.form.valid" (click)="cambiarActivo()">Desactivar</button></ng-template> 
+                <ng-template #activar_tipo><button id="estancia-activo" class="btn btn-success" [disabled]="!estanciaForm.form.valid" (click)="cambiarActivo()">Activar</button></ng-template> 
             </span>
         </span>
 
