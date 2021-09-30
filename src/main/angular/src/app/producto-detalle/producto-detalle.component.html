@@ -33,7 +33,7 @@
     </div>
 
     <label for="estancia-nombre" class="fonty">Número planta: </label>
-    <input id="estancia-nombre" type="number" [(ngModel)]="estancia.planta" #estancia_tienda="ngModel" name="estancia_tienda" class="form-control" [disabled]="lectura" required min="0"><br>
+    <input id="estancia-nombre" type="number" [(ngModel)]="estancia.planta" #estancia_tienda="ngModel" name="estancia_planta" class="form-control" [disabled]="lectura" required min="0"><br>
     <div *ngIf="estancia_nombre.invalid && (estancia_nombre.dirty || estancia_nombre.touched)"
       class="alert alert-warning">
       <div *ngIf="estancia_nombre.errors?.required">
@@ -42,8 +42,8 @@
     </div>
 
 
-    <label for="estancia-marca" class="fonty">Número puerta: </label>
-    <input id="estancia-marca" type="number" [(ngModel)]="estancia.puerta" #estancia_tienda="ngModel" name="estancia_tienda" class="form-control" [disabled]="lectura" required min="0"><br>
+    <label for="estancia-puerta" class="fonty">Número puerta: </label>
+    <input id="estancia-puerta" type="number" [(ngModel)]="estancia.puerta" #estancia_tienda="ngModel" name="estancia_puerta" class="form-control" [disabled]="lectura" required min="0"><br>
     <div *ngIf="estancia_nombre.invalid && (estancia_nombre.dirty || estancia_nombre.touched)"
       class="alert alert-warning">
       <div *ngIf="estancia_nombre.errors?.required">
@@ -52,7 +52,7 @@
     </div>
 
     <label for="estancia-plazas" class="fonty">Número plazas: </label>
-    <input id="estancia-plazas" type="number" [(ngModel)]="estancia.plazas" #estancia_tienda="ngModel" name="estancia_tienda" class="form-control" [disabled]="lectura" required min="0"><br>
+    <input id="estancia-plazas" type="number" [(ngModel)]="estancia.plazas" #estancia_tienda="ngModel" name="estancia_plazas" class="form-control" [disabled]="lectura" required min="0"><br>
     <div *ngIf="estancia_nombre.invalid && (estancia_nombre.dirty || estancia_nombre.touched)"
       class="alert alert-warning">
       <div *ngIf="estancia_nombre.errors?.required">
@@ -60,14 +60,15 @@
       </div>
     </div>
 
-    <label for="estancia-plazas" class="fonty">Superficie: </label>
-    <input id="estancia-plazas" type="number" [(ngModel)]="estancia.superficie" #estancia_tienda="ngModel" name="estancia_tienda" class="form-control" [disabled]="lectura" required min="0"><br>
+    <label for="estancia-superficie" class="fonty">Superficie: </label>
+    <input id="estancia-superficie" type="number" [(ngModel)]="estancia.superficie" #estancia_tienda="ngModel" name="estancia_superficie" class="form-control" [disabled]="lectura" required min="0"><br>
     <div *ngIf="estancia_nombre.invalid && (estancia_nombre.dirty || estancia_nombre.touched)"
       class="alert alert-warning">
       <div *ngIf="estancia_nombre.errors?.required">
         La superficie es un campo obligatorio.
       </div>
     </div>
+
 
 
     <label for="estancia-nombre" class="fonty">Nombre: </label>
@@ -105,9 +106,9 @@
     <br>
     <br>
 
-    <label for="estancia-nombre" class="fonty">Complementos Extra: </label>
-    <input id="estancia-nombre" type="text" [(ngModel)]="estancia.complementos" #estancia_nombre="ngModel"
-      name="estancia_nombre" class="form-control" [disabled]="lectura" required><br>
+    <label for="estancia-complementos" class="fonty">Complementos Extra: </label>
+    <input id="estancia-complementos" type="text" [(ngModel)]="estancia.complementos" #estancia_nombre="ngModel"
+      name="estancia_complementos" class="form-control" [disabled]="lectura" required><br>
 
     <div *ngIf="!estanciaForm.form.valid && !lectura" class="alert alert-warning">
       Debe completar el formulario correctamente.
