@@ -102,4 +102,27 @@ public class TipoEstanciaService {
 
 	}
 
+	public List<TipoEstanciaDto> listarActivos() {
+
+		List<TipoEstancia> listaCompleta = new ArrayList<>();
+		List<TipoEstancia> listaActivos = new ArrayList<>();
+		List<TipoEstanciaDto> listaDto = new ArrayList<>();
+
+		tipoEstanciaRepository.findAll().forEach(listaCompleta::add);
+		
+		for (int i=0; i< listaCompleta.size(); i++) {
+			
+			TipoEstancia p = listaCompleta.get(i);
+			
+			if ( p.isActivo()) {
+				
+				listaActivos.add(p);
+			}
+		}
+		
+		listaActivos.forEach(p -> listaDto.add(tipoEstanciaHelper.entityToDto(p)));
+
+		return listaDto;
+	}
+
 }

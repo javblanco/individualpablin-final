@@ -68,5 +68,12 @@ public class TipoEstanciaController {
 		LOGGER.info("Recibida una solicitud para activar un tipo de estancia");
 		tipoEstanciaService.darDeAlta(id);
 	}
+	
+	@GetMapping("/activo")
+	public List<TipoEstanciaDto> getProductosTipoActivo() {
+		LOGGER.info("listo los tipos de producto activos");
+		return tipoEstanciaService.listarActivos();
+	}
+
 
 }
