@@ -125,6 +125,8 @@ public class EstanciaControllerIntegrationTest {
 		entityManager.flush();
 		
 		estanciaResultado.setTipoEstancia(tipoEst);
+		estanciaResultado.setRef("[5-5]");
+		estanciaResultado.setDisponible(true);
 		
 		EstanciaDto dto = generarEstanciaDto();
 		dto.setIdTipoEstancia(tipoEst.getId());
