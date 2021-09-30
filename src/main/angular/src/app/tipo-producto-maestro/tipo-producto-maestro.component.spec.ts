@@ -42,11 +42,5 @@ describe('TipoProductoMaestroComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('Debería haber 4 registros', () => {
-    fixture.detectChanges();
-    
-      let compile = fixture.nativeElement as HTMLElement;
-      expect(compile.querySelectorAll('table#tabla-tipo-producto tbody tr').length).toBe(4);
-
-  })
+  
 });
