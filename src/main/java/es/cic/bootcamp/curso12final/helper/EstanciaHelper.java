@@ -21,6 +21,7 @@ public class EstanciaHelper {
 		e.setId(dto.getId());
 		e.setPuerta(dto.getPuerta());
 		e.setPlanta(dto.getPlanta());
+		e.setRef(dto.getRef());
 		e.setPlazas(dto.getPlazas());
 		e.setSuperficie(dto.getSuperficie());
 		e.setNombre(dto.getNombre());
@@ -47,6 +48,7 @@ public class EstanciaHelper {
 		eDto.setPuerta(e.getPuerta());
 		eDto.setPlanta(e.getPlanta());
 		eDto.setPlazas(e.getPlazas());
+		eDto.setRef(e.getRef());
 		eDto.setSuperficie(e.getSuperficie());
 		eDto.setNombre(e.getNombre());
 		eDto.setMinibar(e.isMinibar());
@@ -83,6 +85,7 @@ public class EstanciaHelper {
 		estancia.setPuerta(dto.getPuerta());
 		estancia.setPlanta(dto.getPlanta());
 		estancia.setPlazas(dto.getPlazas());
+		estancia.setRef(dto.getRef());
 		estancia.setSuperficie(dto.getSuperficie());
 		estancia.setMinibar(dto.isMinibar());
 		estancia.setAireacondicionado(dto.isAireacondicionado());

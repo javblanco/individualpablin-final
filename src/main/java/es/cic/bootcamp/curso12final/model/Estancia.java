@@ -27,6 +27,8 @@ public class Estancia {
 	
 	private int superficie;
 	
+	private String ref;
+	
 	private String nombre;
 	
 	//Complementos de la estancia
@@ -109,6 +111,16 @@ public class Estancia {
 		this.planta = planta;
 	}
 
+	
+	public String getRef() {
+		return ref;
+	}
+
+
+
+	public void setRef(String ref) {
+		this.ref = ref;
+	}
 
 	public int getPlazas() {
 		return plazas;
@@ -200,14 +212,12 @@ public class Estancia {
 	}
 
 
-	
-
 	@Override
 	public String toString() {
 		return "Estancia [id=" + id + ", tipoEstancia=" + tipoEstancia + ", puerta=" + puerta + ", planta=" + planta
-				+ ", plazas=" + plazas + ", superficie=" + superficie + ", nombre=" + nombre + ", minibar=" + minibar
-				+ ", aireacondicionado=" + aireacondicionado + ", parking=" + parking + ", jacuzzi=" + jacuzzi
-				+ ", disponible=" + disponible + ", complementos=" + complementos + "]";
+				+ ", plazas=" + plazas + ", superficie=" + superficie + ", ref=" + ref + ", nombre=" + nombre
+				+ ", minibar=" + minibar + ", aireacondicionado=" + aireacondicionado + ", parking=" + parking
+				+ ", jacuzzi=" + jacuzzi + ", disponible=" + disponible + ", complementos=" + complementos + "]";
 	}
 
 

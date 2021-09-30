@@ -28,8 +28,6 @@ public class EstanciaService {
 
 	public Long create(@Valid EstanciaDto dto) {
 		
-		System.out.println("Al loro aquí" + dto);
-		
 		if (dto.getId() != null) {
 			throw new CreateEstanciaException("No se puede modificar una estancia, solo crear");
 		}
@@ -41,6 +39,10 @@ public class EstanciaService {
 		if (optional.isPresent()) {
 			tipoEstancia = optional.get();
 		}
+		
+		//Logica que calcula la referencia
+		dto.setRef("["+dto.getPlanta()+"-"+dto.getPuerta()+"]");
+		dto.setDisponible(true);//al crear se inicia con true
 
 		Estancia resultado = estanciaRepository.save(estanciaHelper.dtoToEntity(dto, tipoEstancia));
 
