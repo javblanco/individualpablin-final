@@ -59,7 +59,7 @@ export class TipoProductoService {
   }
 
   getTiposActivos(): Observable<TipoEstancia[]> {
-    const activoUrl = `${this.url}`;
+    const activoUrl = `${this.url}/activo`;
 
     return this.http.get<TipoEstancia[]>(activoUrl);
   }
