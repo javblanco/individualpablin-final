@@ -6,6 +6,7 @@ import java.util.Optional;
 import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import es.cic.bootcamp.curso12final.dto.EstanciaDto;
 import es.cic.bootcamp.curso12final.exception.CreateEstanciaException;
 import es.cic.bootcamp.curso12final.exception.CreateTipoEstanciaException;
@@ -16,6 +17,7 @@ import es.cic.bootcamp.curso12final.repository.EstanciaRepository;
 import es.cic.bootcamp.curso12final.repository.TipoEstanciaRepository;
 
 @Service
+@Transactional
 public class EstanciaService {
 	
 	@Autowired
