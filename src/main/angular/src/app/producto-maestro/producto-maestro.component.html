@@ -26,14 +26,14 @@
             <td>{{estancia.superficie}}</td>
             <td>{{estancia.disponible}}</td>
             <td>{{estancia.complementos}}</td>
-            <td><a routerLink="../{{estancia.id}}" (click)="ver()" class="estancia-ver btn btn-block btn-info mr-3 mb-1">Ver</a>
+            <td><a routerLink="../{{estancia.id}}" (click)="ver()" class="estancia-ver btn btn-block btn-info mr-3 mb-1">Info</a>
                 <a routerLink="../{{estancia.id}}" class="estancia-modificar btn btn-block btn-primary">Modificar</a></td>
         </tr>
     </tbody>
 </table>
 
 
-<a routerLink="../" id="crear-estancia" class="btn btn-primary float-left">Crear</a>
-<button id="volver-listado-estancia" (click)="volver()" class="btn btn-secondary float-right">Volver</button>
+<a routerLink="../" id="crear-estancia" class="btn btn-primary float-left">Registrar</a>
+<button id="volver-listado-estancia" (click)="volver()" class="btn btn-secondary float-right">Salir</button>
 
 </div>
