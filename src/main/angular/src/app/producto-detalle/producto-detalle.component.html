@@ -1,78 +1,124 @@
-<div class="jumbotron"><div *ngIf="!lectura">
-<div *ngIf="!producto.id; then crear_tipo else modificar_tipo">será ignorado</div> 
-<ng-template #crear_tipo><h2>Crear producto</h2></ng-template>
-<ng-template #modificar_tipo><h2>Modificar producto</h2></ng-template>
-</div>
-<h2 *ngIf="lectura">Información del producto</h2>
+<div class="jumbotron bgblue">
+  <div *ngIf="!lectura">
+    <div *ngIf="!estancia.id; then crear_tipo else modificar_tipo">
+      será ignorado
+    </div>
+    <ng-template #crear_tipo>
+      <h2 class="title ">
+        Registrar Nueva Estancia
+      </h2>
+    </ng-template>
+    <ng-template #modificar_tipo>
+      <h2 class="title ">
+        Modificar Estancia
+      </h2>
+    </ng-template>
+  </div>
+  <h2 *ngIf="lectura" class="title ">Información de la estancia</h2>
 </div>
 
 <div class="container">
-    <form #productoForm="ngForm">
-<label for="producto-nombre">Nombre: </label>
-<input id="producto-nombre" type="text" [(ngModel)]="producto.nombre"  #producto_nombre="ngModel" name="producto_nombre" class="form-control" [disabled]="lectura" required><br>
-<div *ngIf="producto_nombre.invalid && (producto_nombre.dirty || producto_nombre.touched)" class="alert alert-warning">
-    <div *ngIf="producto_nombre.errors?.required">
-        El nombre es un campo obligatorio.
+  <form #estanciaForm="ngForm">
+    
+    <label for="estancia-tipo" class="fonty">Modelo Estancia: </label>
+    <select [(ngModel)]="estancia.idTipoEstancia" name="tipo" id="estancia-tipo" #estancia_tipo="ngModel" name="tipo"
+      class="form-control" [disabled]="lectura" required>
+      <option value="undefined" disabled selected>Seleccione una opción</option>
+      <option *ngFor="let tipo of listaTipos" [ngValue]="tipo.id">{{tipo.nombre}}</option>
+    </select><br>
+    <div *ngIf="estancia_tipo.invalid && (estancia_tipo.dirty || estancia_tipo.touched)" class="alert alert-warning">
+      <div *ngIf="estancia_tipo.errors?.required">
+        El Modelo es un campo obligatorio.
       </div>
-</div>
+    </div>
 
-<label for="producto-tipo">Tipo de producto: </label>
-<select [(ngModel)]="producto.idTipoProducto" name="tipo" id="producto-tipo" #producto_tipo="ngModel" name="tipo" class="form-control" [disabled]="lectura" required>
-    <option value="undefined" disabled selected>Seleccione una opción</option>
-    <option *ngFor="let tipo of listaTipos" [ngValue]="tipo.id">{{tipo.nombre}}</option>
-</select><br>
-<div *ngIf="producto_tipo.invalid && (producto_tipo.dirty || producto_tipo.touched)" class="alert alert-warning">
-    <div *ngIf="producto_tipo.errors?.required">
-        El tipo es un campo obligatorio.
+    <label for="estancia-nombre" class="fonty">Número planta: </label>
+    <input id="estancia-nombre" type="number" [(ngModel)]="estancia.planta" #estancia_tienda="ngModel" name="estancia_planta" class="form-control" [disabled]="lectura" required min="0"><br>
+    <div *ngIf="estancia_nombre.invalid && (estancia_nombre.dirty || estancia_nombre.touched)"
+      class="alert alert-warning">
+      <div *ngIf="estancia_nombre.errors?.required">
+        El número de planta es un campo obligatorio.
       </div>
-</div>
+    </div>
 
-<label for="producto-marca">Marca: </label>
-<input id="producto-marca" type="text" [(ngModel)]="producto.marca" #producto_marca="ngModel" name="producto_marca" class="form-control" [disabled]="lectura" required><br>
-<div *ngIf="producto_marca.invalid && (producto_marca.dirty || producto_marca.touched)" class="alert alert-warning">
-    <div *ngIf="producto_marca.errors?.required">
-        La marca es un campo obligatorio.
+
+    <label for="estancia-puerta" class="fonty">Número puerta: </label>
+    <input id="estancia-puerta" type="number" [(ngModel)]="estancia.puerta" #estancia_tienda="ngModel" name="estancia_puerta" class="form-control" [disabled]="lectura" required min="0"><br>
+    <div *ngIf="estancia_nombre.invalid && (estancia_nombre.dirty || estancia_nombre.touched)"
+      class="alert alert-warning">
+      <div *ngIf="estancia_nombre.errors?.required">
+        El número de puerta es un campo obligatorio.
       </div>
-</div>
+    </div>
 
-<label for="producto-modelo">Modelo: </label>
-<input id="producto-modelo" type="text" [(ngModel)]="producto.modelo" #producto_modelo="ngModel" name="producto_modelo" class="form-control" [disabled]="lectura" required><br>
-<div *ngIf="producto_modelo.invalid && (producto_modelo.dirty || producto_modelo.touched)" class="alert alert-warning">
-    <div *ngIf="producto_modelo.errors?.required">
-        El modelo es un campo obligatorio.
+    <label for="estancia-plazas" class="fonty">Número plazas: </label>
+    <input id="estancia-plazas" type="number" [(ngModel)]="estancia.plazas" #estancia_tienda="ngModel" name="estancia_plazas" class="form-control" [disabled]="lectura" required min="0"><br>
+    <div *ngIf="estancia_nombre.invalid && (estancia_nombre.dirty || estancia_nombre.touched)"
+      class="alert alert-warning">
+      <div *ngIf="estancia_nombre.errors?.required">
+        El número de plazas es un campo obligatorio.
       </div>
-</div>
+    </div>
 
-<label for="producto-stock-almacen">Cantidad en almacén: </label>
-<input id="producto-stock-almacen" type="number" [(ngModel)]="producto.cantidadAlmacen" #producto_almacen="ngModel" name="producto_almacen" class="form-control" [disabled]="lectura" required min="0"><br>
-<div *ngIf="producto_almacen.invalid && (producto_almacen.dirty || producto_tienda.touched)" class="alert alert-warning">
-    <div *ngIf="producto_tienda.errors?.required">
-        La cantidad en almacén es un campo obligatorio.
+    <label for="estancia-superficie" class="fonty">Superficie: </label>
+    <input id="estancia-superficie" type="number" [(ngModel)]="estancia.superficie" #estancia_tienda="ngModel" name="estancia_superficie" class="form-control" [disabled]="lectura" required min="0"><br>
+    <div *ngIf="estancia_nombre.invalid && (estancia_nombre.dirty || estancia_nombre.touched)"
+      class="alert alert-warning">
+      <div *ngIf="estancia_nombre.errors?.required">
+        La superficie es un campo obligatorio.
       </div>
-      <div *ngIf="producto_almacen.errors?.required">
-        No se admiten números negativos
-      </div>
-</div>
+    </div>
 
-<label for="producto-stock-tienda">Cantidad en tienda: </label>
-<input id="producto-stock-tienda" type="number" [(ngModel)]="producto.cantidadTienda" #producto_tienda="ngModel" name="producto_tienda" class="form-control" [disabled]="lectura" required min="0"><br>
-<div *ngIf="producto_tienda.invalid && (producto_tienda.dirty || producto_tienda.touched)" class="alert alert-warning">
-    <div *ngIf="producto_tienda.errors?.required">
-        La cantidad en tienda es un campo obligatorio.
-      </div>
-      <div *ngIf="producto_tienda.errors?.required">
-        No se admiten números negativos
-      </div>
-</div>
 
-<div *ngIf="!productoForm.form.valid" class="alert alert-warning">
-  Debe rellenar el formulario.
-</div>
 
-<button id="producto-guardar" (click)="guardar()" [disabled]="lectura || !productoForm.form.valid" class="btn btn-primary float-left mr-5">Guardar</button> 
-<button id="producto-volver" (click)="volver()" class="btn btn-secondary float-right">Volver</button>
-</form>
+    <label for="estancia-nombre" class="fonty">Nombre: </label>
+    <input id="estancia-nombre" type="text" [(ngModel)]="estancia.nombre" #estancia_nombre="ngModel"
+      name="estancia_nombre" class="form-control" [disabled]="lectura" required><br>
+    
+    <label for="activo" class="fonty" >Incluir :</label>
+    <br>
 
-<div id="feedback" *ngIf="mensaje" class="mt-5 alert alert-success">{{mensaje}}</div>
+    <label for="activo" class="fonty" >Mini Bar</label>
+    <br>
+    <input name="minibar" ng-control="options" type="radio" [value]="true"  [(ngModel)]="estancia.minibar"  >Si
+    <input  name="minibar" ng-control="options" type="radio" [value]="false"  [(ngModel)]="estancia.minibar"  >No 
+    <br>
+    <br>
+
+    <label for="activo" class="fonty" >Jacuzzi</label>
+    <br>
+    <input name="jacuzzi" ng-control="options" type="radio" [value]="true"  [(ngModel)]="estancia.jacuzzi"  >Si
+    <input  name="jacuzzi" ng-control="options" type="radio" [value]="false"  [(ngModel)]="estancia.jacuzzi"  >No 
+    <br>
+    <br>
+
+    <label for="activo" class="fonty" >Aire Acondicionado</label>
+    <br>
+    <input name="aireacondicionado" ng-control="options" type="radio" [value]="true"  [(ngModel)]="estancia.aireacondicionado"  >Si
+    <input  name="aireacondicionado" ng-control="options" type="radio" [value]="false"  [(ngModel)]="estancia.aireacondicionado"  >No 
+    <br>
+    <br>
+
+    <label for="activo" class="fonty" >Parking</label>
+    <br>
+    <input name="parking" ng-control="options" type="radio" [value]="true"  [(ngModel)]="estancia.parking"  >Si
+    <input  name="parking" ng-control="options" type="radio" [value]="false"  [(ngModel)]="estancia.parking"  >No 
+    <br>
+    <br>
+
+    <label for="estancia-complementos" class="fonty">Complementos Extra: </label>
+    <input id="estancia-complementos" type="text" [(ngModel)]="estancia.complementos" #estancia_nombre="ngModel"
+      name="estancia_complementos" class="form-control" [disabled]="lectura" required><br>
+
+    <div *ngIf="!estanciaForm.form.valid && !lectura" class="alert alert-warning">
+      Debe completar el formulario correctamente.
+    </div>
+
+    <button id="estancia-guardar" (click)="guardar()" [disabled]="lectura || !estanciaForm.form.valid"
+      class="btn btn-primary float-left mr-5">Registrar</button>
+    <button id="estancia-volver" (click)="volver()" class="btn btn-secondary float-right">Salir</button>
+  </form>
+
+  <div id="feedback" *ngIf="mensaje" class="mt-5 alert alert-success">{{mensaje}}</div>
 
 </div>

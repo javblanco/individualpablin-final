@@ -1,36 +1,39 @@
-<div class="jumbotron"><h2 id="titulo-producto-maestro">Listado de productos</h2></div>
+<div class="jumbotron bgblue">
+    <h2 class="title " id="titulo-producto-maestro">
+        Estancias Registradas
+    </h2>
+</div>
 
 <div class="container container-xl">
-<table id="tabla-producto" class="table mb-5">
+    
+<table id="tabla-estancia" class="table mb-5">
     <thead>
-        <tr>
-            <th>Nombre</th>
+        <tr class="bggreen fonty">
+            <th>Ref</th>
             <th>Modelo</th>
-            <th>Marca</th>
-            <th>Tipo de producto</th>
-            <th>Stock total</th>
-            <th>Cantidad en almacen</th>
-            <th>Cantidad en tienda</th>
+            <th>Plazas</th>
+            <th>Superficie</th>
+            <th>Disponible</th>
+            <th>Extras</th>
             <th>Acciones</th>
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let producto of productos">
-            <td>{{producto.nombre}}</td>
-            <td>{{producto.modelo}}</td>
-            <td>{{producto.marca}}</td>
-            <td>{{producto.nombreTipoProducto}}</td>
-            <td>{{producto.cantidadTotal}}</td>
-            <td>{{producto.cantidadAlmacen}}</td>
-            <td>{{producto.cantidadTienda}}</td>
-            <td><a routerLink="../{{producto.id}}" (click)="ver()" class="btn btn-block btn-info mr-3 mb-1">Ver</a>
-                <a routerLink="../{{producto.id}}" class="btn btn-block btn-primary">Modificar</a></td>
+        <tr *ngFor="let estancia of estancias">
+            <td>{{estancia.ref}}</td>
+            <td>{{estancia.nombreTipoEstancia}}</td>
+            <td>{{estancia.plazas}}</td>
+            <td>{{estancia.superficie}}</td>
+            <td>{{estancia.disponible}}</td>
+            <td>{{estancia.complementos}}</td>
+            <td><a routerLink="../{{estancia.id}}" (click)="ver()" class="estancia-ver btn btn-block btn-info mr-3 mb-1">Info</a>
+                <a routerLink="../{{estancia.id}}" class="estancia-modificar btn btn-block btn-primary">Modificar</a></td>
         </tr>
     </tbody>
 </table>
 
 
-<a routerLink="../" id="crear-producto" class="btn btn-primary float-left">Crear</a>
-<button id="volver-listado-producto" (click)="volver()" class="btn btn-secondary float-right">Volver</button>
+<a routerLink="../" id="crear-estancia" class="btn btn-primary float-left">Registrar</a>
+<button id="volver-listado-estancia" (click)="volver()" class="btn btn-secondary float-right">Salir</button>
 
 </div>

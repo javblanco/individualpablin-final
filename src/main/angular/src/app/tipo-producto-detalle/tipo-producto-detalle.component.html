@@ -1,14 +1,28 @@
-<div class="jumbotron"><div *ngIf="!lectura">
-    <div *ngIf="!tipo.id && !lectura; then crear_tipo else modificar_tipo">será ignorado</div> 
-    <ng-template #crear_tipo><h2>Crear tipo de producto</h2></ng-template>
-    <ng-template #modificar_tipo><h2>Modificar tipo de producto</h2></ng-template>
-</div>
-<h2 *ngIf="lectura">Información del tipo de producto</h2>
+<div class="jumbotron bgblue">
+  <div *ngIf="!lectura">
+    <div *ngIf="creacion && !lectura; then crear_tipo else modificar_tipo">
+      será ignorado
+    </div> 
+    <ng-template #crear_tipo>
+      <h2 class="title ">
+        Registrar Nuevo Modelo
+      </h2>
+    </ng-template>
+    
+    <ng-template #modificar_tipo>
+      <h2 class="title ">
+        Modificar tipo de producto
+      </h2>
+    </ng-template>
+  </div>
+  <h2 *ngIf="lectura" class="title ">
+  Información del tipo de producto
+  </h2>
 </div>
 
 <div class="container">
     <form #tipoForm="ngForm">
-<label for="tipo-nombre">Nombre: </label>
+<label for="tipo-nombre" class="fonty" >Nombre: </label>
 <input id="tipo-nombre" type="text" [(ngModel)]="tipo.nombre" #tipo_nombre="ngModel" name="tipo_nombre" [disabled]="lectura" class="form-control" required minlength="2" maxlength="70"> <br>
 
 <div *ngIf="tipo_nombre.invalid && (tipo_nombre.dirty || tipo_nombre.touched)"
@@ -27,7 +41,7 @@
 
 </div>
 
-<label for="tipo-descripcion">Descripción: </label>
+<label for="tipo-descripcion"  class="fonty">Descripción: </label>
 <textarea id="tipo-descripcion" name="tipo_descripcion" #tipo_descripcion="ngModel" [(ngModel)]="tipo.descripcion" [disabled]="lectura" class="form-control" required maxlength="256"></textarea><br>
 
 <div *ngIf="tipo_descripcion.invalid && (tipo_descripcion.dirty || tipo_descripcion.touched)"  class="alert alert-warning">
@@ -42,20 +56,20 @@
 
 </div>
 
-<div *ngIf="!tipoForm.form.valid" class="alert alert-warning">
-  Debe rellenar el formulario.
+<div *ngIf="!tipoForm.form.valid && !lectura" class="alert alert-warning">
+  Debe completar el formulario.
 </div>
 
-<button id="tipo-guardar" (click)="guardar()" [disabled]="lectura || !tipoForm.form.valid" class="btn btn-primary float-left mr-5">Guardar</button> 
+<button id="tipo-guardar" (click)="guardar()" [disabled]="lectura || !tipoForm.form.valid" class="btn btn-primary float-left mr-5">Registrar</button> 
 <span *ngIf="tipo.id">
 
 <span *ngIf="!lectura">
     <span *ngIf="tipo.activo; then desactivar_tipo else activar_tipo">será ignorado</span> 
-        <ng-template #desactivar_tipo><button id="tipo-activo" class="btn btn-danger" [disabled]="!tipoForm.form.valid" (click)="cambiarActivo()">Baja</button></ng-template> 
-        <ng-template #activar_tipo><button id="tipo-activo" class="btn btn-success" [disabled]="!tipoForm.form.valid" (click)="cambiarActivo()">Alta</button></ng-template> 
+        <ng-template #desactivar_tipo><button id="tipo-activo" class="btn btn-danger" [disabled]="!tipoForm.form.valid" (click)="cambiarActivo()">Desactivar</button></ng-template> 
+        <ng-template #activar_tipo><button id="tipo-activo" class="btn btn-success" [disabled]="!tipoForm.form.valid" (click)="cambiarActivo()">Activar</button></ng-template> 
     </span>
 </span>
-<button id="tipo-volver" (click)="volver()" class="btn btn-secondary float-right">Volver</button>
+<button id="tipo-volver" (click)="volver()" class="btn btn-secondary float-right">Salir</button>
 
 </form>
 <div *ngIf="mensaje" id="feedback" class="mt-5 alert alert-success">{{mensaje}}</div>

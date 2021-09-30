@@ -87,7 +87,17 @@ public class EstanciaService {
 			//ACtualizar el tipo
 			dto.setTipoEstancia(tipoEstancia);
 
-			estanciaHelper.dtoToEntity(estancia, dto, estancia.getTipoEstancia());
+			//Logica que calcula la referencia
+			dto.setRef("["+dto.getPlanta()+"-"+dto.getPuerta()+"]");
+
+			Optional<TipoEstancia> tipoO = tipoEstanciaRepository.findById(dto.getIdTipoEstancia());
+			TipoEstancia tipoEstancia = tipoO.get();
+			
+			//ACtualizar el tipo
+			dto.setTipoEstancia(tipoEstancia);
+			
+
+			estanciaHelper.dtoToEntity(estancia, dto, dto.getTipoEstancia());
 			estanciaRepository.save(estancia);
 		}
 		

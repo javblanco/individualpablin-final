@@ -9,7 +9,7 @@ import { TipoProducto } from '../model/tipoProducto';
 })
 export class TipoProductoService {
 
-  url = `${environment.host}/api/tipoProducto`;
+  url = `${environment.host}/tipoEstancia`;
 
   lectura = false;
 
@@ -20,6 +20,7 @@ export class TipoProductoService {
   constructor(private http: HttpClient) { }
 
   getTipos(): Observable<TipoProducto[]> {
+
     return this.http.get<TipoProducto[]>(this.url);
   }
 
@@ -29,12 +30,24 @@ export class TipoProductoService {
     return this.http.get<TipoProducto>(idUrl);
   }
 
-  crearTipo(tipo: TipoProducto): Observable<number> {
-    return this.http.post<number>(this.url, tipo, this.options);
+  crearTipo(tipo: TipoProducto): Observable<TipoProducto> {
+    return this.http.post<TipoProducto>(this.url, tipo, this.options);
   }
 
-  modificarTipo(tipo: TipoProducto): Observable<never> {
-    return this.http.put<never>(this.url, tipo, this.options);
+  modificarTipo(tipo: TipoProducto): Observable<any> {
+    return this.http.put<any>(this.url, tipo, this.options);
+  }
+
+  activarTipo(id: number): Observable<any> {
+    const idUrl = `${this.url}/activar/${id}`;
+
+    return this.http.post(idUrl, this.options);
+  }
+
+  desactivarTipo(id: number): Observable<any> {
+    const idUrl = `${this.url}/desactivar/${id}`;
+
+    return this.http.post(idUrl, this.options);
   }
 
   activarSoloLectura(): void {
@@ -43,5 +56,11 @@ export class TipoProductoService {
 
   desactivarSoloLectura(): void {
     this.lectura = false;
+  }
+
+  getTiposActivos(): Observable<TipoProducto[]> {
+    const activoUrl = `${this.url}`;
+
+    return this.http.get<TipoProducto[]>(activoUrl);
   }
 }

@@ -1,27 +1,28 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 
-import { ModalAltaComponent } from './modal-alta.component';
+import { ModalDevolverComponent } from './modal-devolver.component';
 
-describe('ModalAltaComponent', () => {
-  let component: ModalAltaComponent;
-  let fixture: ComponentFixture<ModalAltaComponent>;
+describe('ModalDevolverComponent', () => {
+  let component: ModalDevolverComponent;
+  let fixture: ComponentFixture<ModalDevolverComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ModalAltaComponent ],
+      declarations: [ ModalDevolverComponent ],
+     
       providers: [
         {provide: NgbActiveModal}
       ]
-          
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ModalAltaComponent);
+    fixture = TestBed.createComponent(ModalDevolverComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
+
 
 });

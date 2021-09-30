@@ -19,7 +19,10 @@ import { ModalModificarComponent } from './modal/modal-modificar/modal-modificar
 import { ModalVolverComponent } from './modal/modal-volver/modal-volver.component';
 import { ModalBajaComponent } from './modal/modal-baja/modal-baja.component';
 import { ModalAltaComponent } from './modal/modal-alta/modal-alta.component';
-
+import { IndexComponent } from './index/index.component';
+import { ModalTransferirComponent } from './modal/modal-transferir/modal-transferir.component';
+import { ModalDevolverComponent } from './modal/modal-devolver/modal-devolver.component';
+import { ModalReponerComponent } from './modal/modal-reponer/modal-reponer.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,7 +33,11 @@ import { ModalAltaComponent } from './modal/modal-alta/modal-alta.component';
     ModalModificarComponent,
     ModalVolverComponent,
     ModalBajaComponent,
-    ModalAltaComponent
+    ModalAltaComponent,
+    IndexComponent,
+    ModalTransferirComponent,
+    ModalDevolverComponent,
+    ModalReponerComponent,
   ],
   imports: [
     BrowserModule,
@@ -39,9 +46,6 @@ import { ModalAltaComponent } from './modal/modal-alta/modal-alta.component';
     FormsModule,
     HttpClientModule,
     HttpClientModule,
-    HttpClientInMemoryWebApiModule.forRoot(
-    InMemoryDataService, { dataEncapsulation: false }
-)
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,23 +1,33 @@
-<div class="jumbotron"><h2 id="titulo-tipo-producto-maestro">Listado de tipos de productos</h2></div>
-<div class="container">
-<table id="tabla-tipo-producto" class="table mb-5">
-    <thead>
-        <tr>
-            <th>Nombre</th>
-            <th>Acciones</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr *ngFor="let tipo of tipos">
-            <td>{{tipo.nombre}}</td>
-            <td><a routerLink="../{{tipo.id}}" (click)="ver()" class="btn btn-info mr-3 mb-1">Ver</a>
-                <a routerLink="../{{tipo.id}}" class="btn btn-primary">Modificar</a></td>
-        </tr>
-    </tbody>
-</table>
-
-<a routerLink="../" id="crear-tipo" class="btn btn-primary float-left">Crear</a>
-<button id="volver-listado-tipo" (click)="volver()" class="btn btn-secondary float-right">Volver</button>
-
+<div class="jumbotron bgblue">
+    <h2 class="title " id="titulo-tipo-producto-maestro">
+        Modelos de Estancia Registrados
+    </h2>
 </div>
 
+
+<div class="container">
+    
+    <table id="tabla-tipo-producto" class="table mb-5">
+        <thead>
+            <tr class="bggreen">
+                <th class="fonty">Nombre</th>
+                <th class="fonty">Status</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let tipo of tipos">
+                <td>{{tipo.nombre}}</td>
+                <td>{{tipo.activo}}</td>
+                <td><a routerLink="../{{tipo.id}}" (click)="ver()" class="tipo-ver btn btn-info mr-3 ">Info</a>
+                    <a routerLink="../{{tipo.id}}" class="tipo-modificar btn btn-primary">Modificar</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a routerLink="../" id="crear-tipo" class="btn btn-primary float-left">Registrar Nuevo</a>
+
+    <button id="volver-listado-tipo" (click)="volver()" class="btn btn-secondary float-right">Salir</button>
+
+</div>
