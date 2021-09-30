@@ -24,7 +24,5 @@ describe('ModalDevolverComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
+
 });

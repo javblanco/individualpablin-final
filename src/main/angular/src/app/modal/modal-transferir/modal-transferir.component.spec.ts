@@ -24,7 +24,4 @@ describe('ModalTransferirComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
 });
