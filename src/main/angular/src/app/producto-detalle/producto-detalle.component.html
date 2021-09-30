@@ -116,6 +116,16 @@
 
     <button id="estancia-guardar" (click)="guardar()" [disabled]="lectura || !estanciaForm.form.valid"
       class="btn btn-primary float-left mr-5">Registrar</button>
+
+      <span *ngIf="estancia.id">
+
+        <span *ngIf="!lectura">
+            <span *ngIf="estancia.disponible; then desactivar_tipo else activar_tipo">será ignorado</span> 
+                <ng-template #desactivar_tipo><button id="tipo-activo" class="btn btn-danger" [disabled]="!estanciaForm.form.valid" (click)="cambiarActivo()">Desactivar</button></ng-template> 
+                <ng-template #activar_tipo><button id="tipo-activo" class="btn btn-success" [disabled]="!estanciaForm.form.valid" (click)="cambiarActivo()">Activar</button></ng-template> 
+            </span>
+        </span>
+
     <button id="estancia-volver" (click)="volver()" class="btn btn-secondary float-right">Salir</button>
   </form>
 
