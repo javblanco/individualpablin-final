@@ -28,6 +28,8 @@ public class EstanciaService {
 
 	public Long create(@Valid EstanciaDto dto) {
 		
+		System.out.println("Al loro aquí" + dto);
+		
 		if (dto.getId() != null) {
 			throw new CreateEstanciaException("No se puede modificar una estancia, solo crear");
 		}

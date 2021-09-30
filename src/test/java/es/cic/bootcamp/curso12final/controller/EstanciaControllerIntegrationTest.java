@@ -72,16 +72,16 @@ public class EstanciaControllerIntegrationTest {
 	private Estancia generarEstancia() {
 		Estancia e = new Estancia();
 		
-		e.setNumPuerta(005);
-		e.setNumPlanta(5);
-		e.setCapacidadMaxHabitantes(10);
-		e.setMetrosCuadrados(250);
+		e.setPuerta(005);
+		e.setPlanta(5);
+		e.setPlazas(10);
+		e.setSuperficie(250);
 		e.setNombre("Dicaprio");
-		e.setMiniBar(true);
-		e.setAireAcondicionado(true);
+		e.setMinibar(true);
+		e.setAireacondicionado(true);
 		e.setParking(false);
 		e.setJacuzzi(true);
-		e.setListaComplementosExtras("Terraza exterior privada");
+		e.setComplementos("Terraza exterior privada");
 		
 		return e;
 	}
@@ -89,16 +89,16 @@ public class EstanciaControllerIntegrationTest {
 	private EstanciaDto generarEstanciaDto() {
 		EstanciaDto eDto = new EstanciaDto();
 		
-		eDto.setNumPuerta(005);
-		eDto.setNumPlanta(5);
-		eDto.setCapacidadMaxHabitantes(10);
-		eDto.setMetrosCuadrados(250);
+		eDto.setPuerta(005);
+		eDto.setPlanta(5);
+		eDto.setPlazas(10);
+		eDto.setSuperficie(250);
 		eDto.setNombre("Dicaprio");
-		eDto.setMiniBar(true);
-		eDto.setAireAcondicionado(true);
+		eDto.setMinibar(true);
+		eDto.setAireacondicionado(true);
 		eDto.setParking(false);
 		eDto.setJacuzzi(true);
-		eDto.setListaComplementosExtras("Terraza exterior privada");
+		eDto.setComplementos("Terraza exterior privada");
 		
 		return eDto;
 		

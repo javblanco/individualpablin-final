@@ -37,174 +37,218 @@ public class EstanciaDto {
 		super();
 	}
 	
-	/**
-	 * Contructor de EstanciaDto utilizado para recoger un objeto, procedente del front-end en la request.
-	 * 
-	 * @param id
-	 * @param idTipoEstancia
-	 * @param nombreTipoEstancia
-	 * @param tipoEstancia
-	 * @param numPuerta
-	 * @param numPlanta
-	 * @param capacidadMaxHabitantes
-	 * @param metrosCuadrados
-	 * @param miniBar
-	 * @param aireAcondicionado
-	 * @param parking
-	 * @param jacuzzi
-	 * @param disponible
-	 * @param listaComplementosExtras
-	 */
-	public EstanciaDto(Long id, Long idTipoEstancia, String nombreTipoEstancia, TipoEstancia tipoEstancia,
-			int numPuerta, int numPlanta, int capacidadMaxHabitantes, int metrosCuadrados,
-			boolean miniBar, boolean aireAcondicionado, boolean parking, boolean jacuzzi, boolean disponible,
-			String listaComplementosExtras) {
+	
+
+	public EstanciaDto(Long id, Long idTipoEstancia, String nombreTipoEstancia, TipoEstancia tipoEstancia, int puerta,
+			int planta, int plazas, int superficie, String nombre, boolean minibar, boolean aireacondicionado,
+			boolean parking, boolean jacuzzi, boolean disponible, String complementos) {
 		super();
 		this.id = id;
 		this.idTipoEstancia = idTipoEstancia;
 		this.nombreTipoEstancia = nombreTipoEstancia;
 		this.tipoEstancia = tipoEstancia;
-		this.puerta = numPuerta;
-		this.plazas = capacidadMaxHabitantes;
-		this.superficie = metrosCuadrados;
-		this.minibar = miniBar;
-		this.aireacondicionado = aireAcondicionado;
+		this.puerta = puerta;
+		this.planta = planta;
+		this.plazas = plazas;
+		this.superficie = superficie;
+		this.nombre = nombre;
+		this.minibar = minibar;
+		this.aireacondicionado = aireacondicionado;
 		this.parking = parking;
 		this.jacuzzi = jacuzzi;
 		this.disponible = disponible;
-		this.complementos = listaComplementosExtras;
+		this.complementos = complementos;
 	}
 
+
+	
 	public Long getId() {
 		return id;
 	}
+
+
 
 	public void setId(Long id) {
 		this.id = id;
 	}
 
+
+
 	public Long getIdTipoEstancia() {
 		return idTipoEstancia;
 	}
+
+
 
 	public void setIdTipoEstancia(Long idTipoEstancia) {
 		this.idTipoEstancia = idTipoEstancia;
 	}
 
+
+
 	public String getNombreTipoEstancia() {
 		return nombreTipoEstancia;
 	}
+
+
 
 	public void setNombreTipoEstancia(String nombreTipoEstancia) {
 		this.nombreTipoEstancia = nombreTipoEstancia;
 	}
 
+
+
 	public TipoEstancia getTipoEstancia() {
 		return tipoEstancia;
 	}
+
+
 
 	public void setTipoEstancia(TipoEstancia tipoEstancia) {
 		this.tipoEstancia = tipoEstancia;
 	}
 
-	public int getNumPuerta() {
+
+
+	public int getPuerta() {
 		return puerta;
 	}
 
-	public void setNumPuerta(int numPuerta) {
-		this.puerta = numPuerta;
+
+
+	public void setPuerta(int puerta) {
+		this.puerta = puerta;
 	}
 
-	public int getNumPlanta() {
+
+
+	public int getPlanta() {
 		return planta;
 	}
 
-	public void setNumPlanta(int numPlanta) {
-		this.planta = numPlanta;
+
+
+	public void setPlanta(int planta) {
+		this.planta = planta;
 	}
 
-	public int getCapacidadMaxHabitantes() {
+
+
+	public int getPlazas() {
 		return plazas;
 	}
 
-	public void setCapacidadMaxHabitantes(int capacidadMaxHabitantes) {
-		this.plazas = capacidadMaxHabitantes;
+
+
+	public void setPlazas(int plazas) {
+		this.plazas = plazas;
 	}
 
-	public int getMetrosCuadrados() {
+
+
+	public int getSuperficie() {
 		return superficie;
 	}
 
-	public void setMetrosCuadrados(int metrosCuadrados) {
-		this.superficie = metrosCuadrados;
+
+
+	public void setSuperficie(int superficie) {
+		this.superficie = superficie;
 	}
-	
+
+
+
 	public String getNombre() {
 		return nombre;
 	}
+
+
 
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
 
-	public boolean isMiniBar() {
+
+
+	public boolean isMinibar() {
 		return minibar;
 	}
 
-	public void setMiniBar(boolean miniBar) {
-		this.minibar = miniBar;
+
+
+	public void setMinibar(boolean minibar) {
+		this.minibar = minibar;
 	}
 
-	public boolean isAireAcondicionado() {
+
+
+	public boolean isAireacondicionado() {
 		return aireacondicionado;
 	}
 
-	public void setAireAcondicionado(boolean aireAcondicionado) {
-		this.aireacondicionado = aireAcondicionado;
+
+
+	public void setAireacondicionado(boolean aireacondicionado) {
+		this.aireacondicionado = aireacondicionado;
 	}
+
+
 
 	public boolean isParking() {
 		return parking;
 	}
 
+
+
 	public void setParking(boolean parking) {
 		this.parking = parking;
 	}
+
+
 
 	public boolean isJacuzzi() {
 		return jacuzzi;
 	}
 
+
+
 	public void setJacuzzi(boolean jacuzzi) {
 		this.jacuzzi = jacuzzi;
 	}
+
+
 
 	public boolean isDisponible() {
 		return disponible;
 	}
 
+
+
 	public void setDisponible(boolean disponible) {
 		this.disponible = disponible;
 	}
 
-	public String getListaComplementosExtras() {
+
+
+	public String getComplementos() {
 		return complementos;
 	}
 
-	public void setListaComplementosExtras(String listaComplementosExtras) {
-		this.complementos = listaComplementosExtras;
+
+
+	public void setComplementos(String complementos) {
+		this.complementos = complementos;
 	}
-	
-	
+
+
 
 	@Override
 	public String toString() {
 		return "EstanciaDto [id=" + id + ", idTipoEstancia=" + idTipoEstancia + ", nombreTipoEstancia="
-				+ nombreTipoEstancia + ", tipoEstancia=" + tipoEstancia + ", numPuerta=" + puerta + ", numPlanta="
-				+ planta + ", capacidadMaxHabitantes=" + plazas + ", metrosCuadrados="
-				+ superficie + ", nombre=" + nombre + ", miniBar=" + minibar + ", aireAcondicionado="
-				+ aireacondicionado + ", parking=" + parking + ", jacuzzi=" + jacuzzi + ", disponible=" + disponible
-				+ ", listaComplementosExtras=" + complementos + "]";
+				+ nombreTipoEstancia + ", tipoEstancia=" + tipoEstancia + ", puerta=" + puerta + ", planta=" + planta
+				+ ", plazas=" + plazas + ", superficie=" + superficie + ", nombre=" + nombre + ", minibar=" + minibar
+				+ ", aireacondicionado=" + aireacondicionado + ", parking=" + parking + ", jacuzzi=" + jacuzzi
+				+ ", disponible=" + disponible + ", complementos=" + complementos + "]";
 	}
 
 	@Override
