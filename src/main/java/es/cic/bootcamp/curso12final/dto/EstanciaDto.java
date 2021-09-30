@@ -16,6 +16,8 @@ public class EstanciaDto {
 	private int puerta;
 
 	private int planta;
+	
+	private String ref;
 
 	private int plazas; //TODO CORREGIR A PLAZAS
 
@@ -134,6 +136,18 @@ public class EstanciaDto {
 
 
 
+	public String getRef() {
+		return ref;
+	}
+
+
+
+	public void setRef(String ref) {
+		this.ref = ref;
+	}
+
+
+
 	public int getPlazas() {
 		return plazas;
 	}
@@ -242,14 +256,29 @@ public class EstanciaDto {
 
 
 
-	@Override
-	public String toString() {
-		return "EstanciaDto [id=" + id + ", idTipoEstancia=" + idTipoEstancia + ", nombreTipoEstancia="
-				+ nombreTipoEstancia + ", tipoEstancia=" + tipoEstancia + ", puerta=" + puerta + ", planta=" + planta
-				+ ", plazas=" + plazas + ", superficie=" + superficie + ", nombre=" + nombre + ", minibar=" + minibar
-				+ ", aireacondicionado=" + aireacondicionado + ", parking=" + parking + ", jacuzzi=" + jacuzzi
-				+ ", disponible=" + disponible + ", complementos=" + complementos + "]";
+	public EstanciaDto(Long id, Long idTipoEstancia, String nombreTipoEstancia, TipoEstancia tipoEstancia, int puerta,
+			int planta, String ref, int plazas, int superficie, String nombre, boolean minibar,
+			boolean aireacondicionado, boolean parking, boolean jacuzzi, boolean disponible, String complementos) {
+		super();
+		this.id = id;
+		this.idTipoEstancia = idTipoEstancia;
+		this.nombreTipoEstancia = nombreTipoEstancia;
+		this.tipoEstancia = tipoEstancia;
+		this.puerta = puerta;
+		this.planta = planta;
+		this.ref = ref;
+		this.plazas = plazas;
+		this.superficie = superficie;
+		this.nombre = nombre;
+		this.minibar = minibar;
+		this.aireacondicionado = aireacondicionado;
+		this.parking = parking;
+		this.jacuzzi = jacuzzi;
+		this.disponible = disponible;
+		this.complementos = complementos;
 	}
+
+
 
 	@Override
     public int hashCode() {
