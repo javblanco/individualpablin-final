@@ -7,7 +7,7 @@ import { Estancia } from '../model/estancia';
 @Injectable({
   providedIn: 'root'
 })
-export class ProductoService {
+export class EstanciaService {
 
   url = `${environment.host}/estancia`;
   
@@ -19,25 +19,25 @@ export class ProductoService {
 
   constructor(private http: HttpClient) { }
 
-  getProductos(): Observable<Estancia[]> {
+  getEstancias(): Observable<Estancia[]> {
     return this.http.get<Estancia[]>(this.url);
   }
 
-  getProducto(id: number): Observable<Estancia> {
+  getEstancia(id: number): Observable<Estancia> {
     let idUrl = `${this.url}/${id}`;
 
     return this.http.get<Estancia>(idUrl);
   }
 
-  crearProducto(estancia: Estancia): Observable<number> {
+  crearEstancia(estancia: Estancia): Observable<number> {
     return this.http.post<number>(this.url, estancia, this.options);
   }
 
-  modificarProducto(estancia: Estancia): Observable<any> {
+  modificarEstancia(estancia: Estancia): Observable<any> {
     return this.http.put(this.url, estancia, this.options);
   }
   /*
-  getProductosTipoActivo(): Observable<Estancia[]> {
+  getEstanciasTipoActivo(): Observable<Estancia[]> {
     const urlActivo = `${this.url}/tipo-activo`;
     
     return this.http.get<Estancia[]>(urlActivo);

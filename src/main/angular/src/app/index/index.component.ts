@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { TransferenciaService } from '../service/transferencia.service';
 
 @Component({
   selector: 'app-index2',
@@ -8,7 +7,7 @@ import { TransferenciaService } from '../service/transferencia.service';
 })
 export class IndexComponent implements OnInit {
 
-  constructor(private service: TransferenciaService) { }
+  constructor() { }
 
   ngOnInit(): void {
   }

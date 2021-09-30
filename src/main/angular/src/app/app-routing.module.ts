@@ -1,20 +1,20 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { IndexComponent } from './index/index.component';
-import { ProductoDetalleComponent } from './producto-detalle/producto-detalle.component';
-import { ProductoMaestroComponent } from './producto-maestro/producto-maestro.component';
-import { TipoProductoDetalleComponent } from './tipo-producto-detalle/tipo-producto-detalle.component';
-import { TipoProductoMaestroComponent } from './tipo-producto-maestro/tipo-producto-maestro.component';
+import { EstanciaDetalleComponent } from './estancia-detalle/estancia-detalle.component';
+import { EstanciaMaestroComponent } from './estancia-maestro/estancia-maestro.component';
+import { TipoEstanciaDetalleComponent } from './tipo-estancia-detalle/tipo-estancia-detalle.component';
+import { TipoEstanciaMaestroComponent } from './tipo-estancia-maestro/tipo-estancia-maestro.component';
 
 const routes: Routes = [
   {path: 'index', component: IndexComponent},
   {path: '', redirectTo: 'index', pathMatch: 'full'},
-  {path: 'tipoEstancia/listar', component: TipoProductoMaestroComponent},
-  {path: 'tipoEstancia', component: TipoProductoDetalleComponent},
-  {path: 'tipoEstancia/:id', component: TipoProductoDetalleComponent},
-  {path: 'estancia/listar', component: ProductoMaestroComponent},
-  {path: 'estancia', component: ProductoDetalleComponent},
-  {path: 'estancia/:id', component: ProductoDetalleComponent},
+  {path: 'tipoEstancia/listar', component: TipoEstanciaMaestroComponent},
+  {path: 'tipoEstancia', component: TipoEstanciaDetalleComponent},
+  {path: 'tipoEstancia/:id', component: TipoEstanciaDetalleComponent},
+  {path: 'estancia/listar', component: EstanciaMaestroComponent},
+  {path: 'estancia', component: EstanciaDetalleComponent},
+  {path: 'estancia/:id', component: EstanciaDetalleComponent},
 ];
 
 @NgModule({

@@ -7,7 +7,7 @@ import { TipoEstancia } from '../model/tipoEstancia';
 @Injectable({
   providedIn: 'root'
 })
-export class TipoProductoService {
+export class TipoEstanciaService {
 
   url = `${environment.host}/tipoEstancia`;
 

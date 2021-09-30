@@ -1,14 +1,14 @@
 import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { Estancia } from '../model/estancia';
-import { ProductoService } from '../service/producto.service';
+import { EstanciaService } from '../service/estancia.service';
 
 @Component({
-  selector: 'app-producto-maestro',
-  templateUrl: './producto-maestro.component.html',
-  styleUrls: ['./producto-maestro.component.css']
+  selector: 'app-estancia-maestro',
+  templateUrl: './estancia-maestro.component.html',
+  styleUrls: ['./estancia-maestro.component.css']
 })
-export class ProductoMaestroComponent implements OnInit {
+export class EstanciaMaestroComponent implements OnInit {
 
   estancias: Estancia[] = [];
 
@@ -16,16 +16,16 @@ export class ProductoMaestroComponent implements OnInit {
 
   filtrado = 1;
 
-  constructor(private service: ProductoService,
+  constructor(private service: EstanciaService,
     private location: Location) { }
 
   ngOnInit(): void {
-    this.getProductos();
+    this.getEstancias();
     this.service.desactivarSoloLectura();
   }
 
-  getProductos(): void {
-    this.service.getProductos()
+  getEstancias(): void {
+    this.service.getEstancias()
     .subscribe(
       estancias => {
       this.estancias = estancias;

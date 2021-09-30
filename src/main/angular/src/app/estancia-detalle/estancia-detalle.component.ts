@@ -8,15 +8,15 @@ import { Estancia } from '../model/estancia';
 import { ModalAltaComponent } from '../modal/modal-alta/modal-alta.component';
 import { ModalBajaComponent } from '../modal/modal-baja/modal-baja.component';
 import { TipoEstancia } from '../model/tipoEstancia';
-import { ProductoService } from '../service/producto.service';
-import { TipoProductoService } from '../service/tipo-producto.service';
+import { EstanciaService } from '../service/estancia.service';
+import { TipoEstanciaService } from '../service/tipo-estancia.service';
 
 @Component({
-  selector: 'app-producto-detalle',
-  templateUrl: './producto-detalle.component.html',
-  styleUrls: ['./producto-detalle.component.css']
+  selector: 'app-estancia-detalle',
+  templateUrl: './estancia-detalle.component.html',
+  styleUrls: ['./estancia-detalle.component.css']
 })
-export class ProductoDetalleComponent implements OnInit {
+export class EstanciaDetalleComponent implements OnInit {
 
   estancia = <Estancia>{};
 
@@ -27,8 +27,8 @@ export class ProductoDetalleComponent implements OnInit {
   lectura = false;
 
   constructor(
-    private estanciaService: ProductoService,
-    private tipoService: TipoProductoService,
+    private estanciaService: EstanciaService,
+    private tipoService: TipoEstanciaService,
     private router: ActivatedRoute,
     private location: Location,
     private modalService: NgbModal
@@ -36,7 +36,7 @@ export class ProductoDetalleComponent implements OnInit {
 
   ngOnInit(): void {
     this.getListaTipos();
-    this.getProducto();
+    this.getEstancia();
   }
 
   getListaTipos(): void {
@@ -44,11 +44,11 @@ export class ProductoDetalleComponent implements OnInit {
     .subscribe(tipos => this.listaTipos = tipos);
   }
 
-  getProducto(): void {
+  getEstancia(): void {
     let id = Number(this.router.snapshot.paramMap.get('id'));
 
     if(id) {
-      this.estanciaService.getProducto(id)
+      this.estanciaService.getEstancia(id)
       .subscribe(
         estancia => this.estancia = estancia
       );
@@ -81,11 +81,11 @@ export class ProductoDetalleComponent implements OnInit {
   }
 
   crear(): void {
-    this.estanciaService.crearProducto(this.estancia)
+    this.estanciaService.crearEstancia(this.estancia)
     .subscribe(
       estancia => {
         this.estancia.id = estancia;
-        this.mensaje='Se ha creado el producto';
+        this.mensaje='Se ha creado la Estancia';
       }
     );
     
@@ -109,7 +109,7 @@ export class ProductoDetalleComponent implements OnInit {
     this.estanciaService.desactivarEstancia(this.estancia.id)
     .subscribe(() => {
       this.estancia.disponible = false;
-      this.mensaje = 'Se ha desactivado la estancia.'
+      this.mensaje = 'Se ha desactivado la Estancia.'
     }) ;    
 }
 
@@ -117,14 +117,14 @@ darAlta(): void {
   this.estanciaService.activarEstancia(this.estancia.id)
   .subscribe(() => {
     this.estancia.disponible = true;
-    this.mensaje = 'Se ha activado la estancia.'
+    this.mensaje = 'Se ha activado la Estancia.'
   });
   
 }
 
   modificar() :void {
-    this.estanciaService.modificarProducto(this.estancia)
-    .subscribe(() => this.mensaje='Se ha modificado el producto');
+    this.estanciaService.modificarEstancia(this.estancia)
+    .subscribe(() => this.mensaje='Se ha modificado la Estancia');
     
   }
 }

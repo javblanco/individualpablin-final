@@ -1,14 +1,14 @@
 import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { TipoEstancia } from '../model/tipoEstancia';
-import { TipoProductoService } from '../service/tipo-producto.service';
+import { TipoEstanciaService } from '../service/tipo-estancia.service';
 
 @Component({
-  selector: 'app-tipo-producto-maestro',
-  templateUrl: './tipo-producto-maestro.component.html',
-  styleUrls: ['./tipo-producto-maestro.component.css']
+  selector: 'app-tipo-estancia-maestro',
+  templateUrl: './tipo-estancia-maestro.component.html',
+  styleUrls: ['./tipo-estancia-maestro.component.css']
 })
-export class TipoProductoMaestroComponent implements OnInit {
+export class TipoEstanciaMaestroComponent implements OnInit {
 
   tipos: TipoEstancia[] = [];
 
@@ -19,7 +19,7 @@ export class TipoProductoMaestroComponent implements OnInit {
   //filtro = 1;
   //filtrado = false;
 
-  constructor(private tipoService: TipoProductoService,
+  constructor(private tipoService: TipoEstanciaService,
     private location: Location) { }
 
   ngOnInit(): void {

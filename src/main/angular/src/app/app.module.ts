@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
@@ -10,10 +9,10 @@ import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 
 
 
-import { TipoProductoMaestroComponent } from './tipo-producto-maestro/tipo-producto-maestro.component';
-import { TipoProductoDetalleComponent } from './tipo-producto-detalle/tipo-producto-detalle.component';
-import { ProductoMaestroComponent } from './producto-maestro/producto-maestro.component';
-import { ProductoDetalleComponent } from './producto-detalle/producto-detalle.component';
+import { TipoEstanciaMaestroComponent } from './tipo-estancia-maestro/tipo-estancia-maestro.component';
+import { TipoEstanciaDetalleComponent } from './tipo-estancia-detalle/tipo-estancia-detalle.component';
+import { EstanciaMaestroComponent } from './estancia-maestro/estancia-maestro.component';
+import { EstanciaDetalleComponent } from './estancia-detalle/estancia-detalle.component';
 import { ModalModificarComponent } from './modal/modal-modificar/modal-modificar.component';
 import { ModalVolverComponent } from './modal/modal-volver/modal-volver.component';
 import { ModalBajaComponent } from './modal/modal-baja/modal-baja.component';
@@ -22,10 +21,10 @@ import { IndexComponent } from './index/index.component';
 @NgModule({
   declarations: [
     AppComponent,
-    TipoProductoMaestroComponent,
-    TipoProductoDetalleComponent,
-    ProductoMaestroComponent,
-    ProductoDetalleComponent,
+    TipoEstanciaMaestroComponent,
+    TipoEstanciaDetalleComponent,
+    EstanciaMaestroComponent,
+    EstanciaDetalleComponent,
     ModalModificarComponent,
     ModalVolverComponent,
     ModalBajaComponent,

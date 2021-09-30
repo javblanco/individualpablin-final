@@ -2,30 +2,30 @@ import { ComponentFixture, ComponentFixtureAutoDetect, TestBed } from '@angular/
 import { FormsModule } from '@angular/forms';
 import { RouterTestingModule } from '@angular/router/testing';
 import { of } from 'rxjs';
-import { TipoProductoService } from '../service/tipo-producto.service';
+import { TipoEstanciaService } from '../service/tipo-estancia.service';
 
-import { TipoProductoMaestroComponent } from './tipo-producto-maestro.component';
+import { TipoEstanciaMaestroComponent } from './tipo-estancia-maestro.component';
 
-describe('TipoProductoMaestroComponent', () => {
-  let component: TipoProductoMaestroComponent;
-  let fixture: ComponentFixture<TipoProductoMaestroComponent>;
-  let spyTipoService: jasmine.SpyObj<TipoProductoService>;
+describe('TipoEstanciaMaestroComponent', () => {
+  let component: TipoEstanciaMaestroComponent;
+  let fixture: ComponentFixture<TipoEstanciaMaestroComponent>;
+  let spyTipoService: jasmine.SpyObj<TipoEstanciaService>;
 
   beforeEach( () => {
      TestBed.configureTestingModule({
-      declarations: [ TipoProductoMaestroComponent ],
+      declarations: [ TipoEstanciaMaestroComponent ],
       imports: [RouterTestingModule,
       FormsModule],
       providers: [
         { provide: ComponentFixtureAutoDetect, useValue: true },
         {
-          provide: TipoProductoService,
-            useValue: jasmine.createSpyObj('TipoProductoService', ['getTiposActivos'])
+          provide: TipoEstanciaService,
+            useValue: jasmine.createSpyObj('TipoEstanciaService', ['getTiposActivos'])
         }  
       ]
     }).compileComponents();
 
-    let spyService = TestBed.get(TipoProductoService);
+    let spyService = TestBed.get(TipoEstanciaService);
 
     spyService.getTiposActivos.and.returnValue(of([{id:1, nombre: 'Cafetera', descripcion: 'Máquina que hace café', activo: true},
     {id:2, nombre: 'Bolígrafo', descripcion: 'Sirve para escribir', activo: true},
@@ -33,7 +33,7 @@ describe('TipoProductoMaestroComponent', () => {
     {id:4, nombre: 'Libreta', descripcion: 'Se usa para realizar anotaciones', activo: true}]
     ));
 
-    fixture = TestBed.createComponent(TipoProductoMaestroComponent);
+    fixture = TestBed.createComponent(TipoEstanciaMaestroComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -7,15 +7,15 @@ import { ModalBajaComponent } from '../modal/modal-baja/modal-baja.component';
 import { ModalModificarComponent } from '../modal/modal-modificar/modal-modificar.component';
 import { ModalVolverComponent } from '../modal/modal-volver/modal-volver.component';
 import { TipoEstancia } from '../model/tipoEstancia';
-import { TipoProductoService } from '../service/tipo-producto.service';
-import { TipoProductoMaestroComponent } from '../tipo-producto-maestro/tipo-producto-maestro.component';
+import { TipoEstanciaService } from '../service/tipo-estancia.service';
+import { TipoEstanciaMaestroComponent } from '../tipo-estancia-maestro/tipo-estancia-maestro.component';
 
 @Component({
-  selector: 'app-tipo-producto-detalle',
-  templateUrl: './tipo-producto-detalle.component.html',
-  styleUrls: ['./tipo-producto-detalle.component.css']
+  selector: 'app-tipo-estancia-detalle',
+  templateUrl: './tipo-estancia-detalle.component.html',
+  styleUrls: ['./tipo-estancia-detalle.component.css']
 })
-export class TipoProductoDetalleComponent implements OnInit {
+export class TipoEstanciaDetalleComponent implements OnInit {
 
   tipo = <TipoEstancia>{};
 
@@ -27,7 +27,7 @@ export class TipoProductoDetalleComponent implements OnInit {
   
 
 
-  constructor(private tipoService: TipoProductoService,
+  constructor(private tipoService: TipoEstanciaService,
     private location: Location,
     private routes: ActivatedRoute,
     private modalService: NgbModal) { }
@@ -68,7 +68,7 @@ export class TipoProductoDetalleComponent implements OnInit {
     this.tipoService.crearTipo(this.tipo)
     .subscribe(tipo => {
       this.tipo.id = tipo.id;
-      this.mensaje = 'Se ha creado el registro';
+      this.mensaje = 'Se ha creado el Modelo';
       this.tipo.activo = true;
     });
     
@@ -77,7 +77,7 @@ export class TipoProductoDetalleComponent implements OnInit {
   modificar(): void {
     this.tipoService.modificarTipo(this.tipo)
     .subscribe(() => {
-      this.mensaje = 'Se ha modificado el tipo'
+      this.mensaje = 'Se ha modificado el Modelo'
     });
     ;
   }
@@ -100,7 +100,7 @@ export class TipoProductoDetalleComponent implements OnInit {
       this.tipoService.desactivarTipo(this.tipo.id)
       .subscribe(() => {
         this.tipo.activo = false;
-        this.mensaje = 'Se ha dado de baja el tipo.'
+        this.mensaje = 'Se ha dado de baja el Modelo.'
       }) ;    
   }
 
@@ -108,7 +108,7 @@ export class TipoProductoDetalleComponent implements OnInit {
     this.tipoService.activarTipo(this.tipo.id)
     .subscribe(() => {
       this.tipo.activo = true;
-      this.mensaje = 'Se ha dado el tipo de alta'
+      this.mensaje = 'Se ha dado  de alta el Modelo'
     });
     
   }

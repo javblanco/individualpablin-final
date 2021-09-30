@@ -3,17 +3,17 @@ import { FormsModule } from '@angular/forms';
 import { RouterTestingModule } from '@angular/router/testing';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { TipoEstancia } from '../model/tipoEstancia';
-import { TipoProductoService } from '../service/tipo-producto.service';
+import { TipoEstanciaService } from '../service/tipo-estancia.service';
 
-import { TipoProductoDetalleComponent } from './tipo-producto-detalle.component';
+import { TipoEstanciaDetalleComponent } from './tipo-estancia-detalle.component';
 
-describe('TipoProductoDetalleComponent', () => {
-  let component: TipoProductoDetalleComponent;
-  let fixture: ComponentFixture<TipoProductoDetalleComponent>;
+describe('TipoEstanciaDetalleComponent', () => {
+  let component: TipoEstanciaDetalleComponent;
+  let fixture: ComponentFixture<TipoEstanciaDetalleComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ TipoProductoDetalleComponent ],
+      declarations: [ TipoEstanciaDetalleComponent ],
       imports: [RouterTestingModule,
       FormsModule,
       ],
@@ -21,8 +21,8 @@ describe('TipoProductoDetalleComponent', () => {
         { provide: ComponentFixtureAutoDetect, useValue: true },
         {provide: NgbActiveModal},
         {
-          provide: TipoProductoService,
-            useValue: jasmine.createSpyObj('TipoProductoService', ['getTipo'])
+          provide: TipoEstanciaService,
+            useValue: jasmine.createSpyObj('TipoEstanciaService', ['getTipo'])
         }  
       ]
     })
@@ -30,7 +30,7 @@ describe('TipoProductoDetalleComponent', () => {
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(TipoProductoDetalleComponent);
+    fixture = TestBed.createComponent(TipoEstanciaDetalleComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
