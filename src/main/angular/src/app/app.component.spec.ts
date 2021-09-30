@@ -20,9 +20,9 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`El titulo de la aplicación es 'ERP tienda con almacén'`, () => {
+  it(`El titulo de la aplicación es 'ROOMMAG'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('ERP tienda con almacén');
+    expect(app.title).toEqual('ROOMMAG');
   });
 });
