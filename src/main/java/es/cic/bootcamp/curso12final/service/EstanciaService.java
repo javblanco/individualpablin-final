@@ -80,6 +80,12 @@ public class EstanciaService {
 
 		if (optional.isPresent()) {
 			Estancia estancia = optional.get();
+			
+			Optional<TipoEstancia> tipoO = tipoEstanciaRepository.findById(dto.getIdTipoEstancia());
+			TipoEstancia tipoEstancia = tipoO.get();
+			
+			//ACtualizar el tipo
+			dto.setTipoEstancia(tipoEstancia);
 
 			estanciaHelper.dtoToEntity(estancia, dto, estancia.getTipoEstancia());
 			estanciaRepository.save(estancia);
