@@ -1,6 +1,6 @@
 import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { TipoProducto } from '../model/tipoProducto';
+import { TipoEstancia } from '../model/tipoEstancia';
 import { TipoProductoService } from '../service/tipo-producto.service';
 
 @Component({
@@ -10,7 +10,7 @@ import { TipoProductoService } from '../service/tipo-producto.service';
 })
 export class TipoProductoMaestroComponent implements OnInit {
 
-  tipos: TipoProducto[] = [];
+  tipos: TipoEstancia[] = [];
 
   visible = false;
 

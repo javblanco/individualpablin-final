@@ -2,7 +2,7 @@ import { ComponentFixture, ComponentFixtureAutoDetect, TestBed } from '@angular/
 import { FormsModule } from '@angular/forms';
 import { RouterTestingModule } from '@angular/router/testing';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
-import { TipoProducto } from '../model/tipoProducto';
+import { TipoEstancia } from '../model/tipoEstancia';
 import { TipoProductoService } from '../service/tipo-producto.service';
 
 import { TipoProductoDetalleComponent } from './tipo-producto-detalle.component';
@@ -40,7 +40,7 @@ describe('TipoProductoDetalleComponent', () => {
   });
 
   it('El input de nombre debería estar vacio', async () => {
-    component.tipo = <TipoProducto>{};
+    component.tipo = <TipoEstancia>{};
 
     let compile = fixture.nativeElement;
 
@@ -53,7 +53,7 @@ describe('TipoProductoDetalleComponent', () => {
   });
 
   it('El textarea de descripcion debería estar vacio', async () => {
-    component.tipo = <TipoProducto>{};
+    component.tipo = <TipoEstancia>{};
 
     let compile = fixture.nativeElement;
 

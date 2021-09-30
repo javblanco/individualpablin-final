@@ -6,7 +6,7 @@ import { ModalAltaComponent } from '../modal/modal-alta/modal-alta.component';
 import { ModalBajaComponent } from '../modal/modal-baja/modal-baja.component';
 import { ModalModificarComponent } from '../modal/modal-modificar/modal-modificar.component';
 import { ModalVolverComponent } from '../modal/modal-volver/modal-volver.component';
-import { TipoProducto } from '../model/tipoProducto';
+import { TipoEstancia } from '../model/tipoEstancia';
 import { TipoProductoService } from '../service/tipo-producto.service';
 import { TipoProductoMaestroComponent } from '../tipo-producto-maestro/tipo-producto-maestro.component';
 
@@ -17,7 +17,7 @@ import { TipoProductoMaestroComponent } from '../tipo-producto-maestro/tipo-prod
 })
 export class TipoProductoDetalleComponent implements OnInit {
 
-  tipo = <TipoProducto>{};
+  tipo = <TipoEstancia>{};
 
   mensaje?: string;
 

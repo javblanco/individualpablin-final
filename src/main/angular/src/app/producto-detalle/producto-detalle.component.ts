@@ -5,7 +5,7 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ModalModificarComponent } from '../modal/modal-modificar/modal-modificar.component';
 import { ModalVolverComponent } from '../modal/modal-volver/modal-volver.component';
 import { Estancia } from '../model/estancia';
-import { TipoProducto } from '../model/tipoProducto';
+import { TipoEstancia } from '../model/tipoEstancia';
 import { ProductoService } from '../service/producto.service';
 import { TipoProductoService } from '../service/tipo-producto.service';
 
@@ -18,7 +18,7 @@ export class ProductoDetalleComponent implements OnInit {
 
   estancia = <Estancia>{};
 
-  listaTipos: TipoProducto[] = [];
+  listaTipos: TipoEstancia[] = [];
 
   mensaje?: string;
 

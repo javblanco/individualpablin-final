@@ -24,7 +24,8 @@
             <td>{{estancia.nombreTipoEstancia}}</td>
             <td>{{estancia.plazas}}</td>
             <td>{{estancia.superficie}}</td>
-            <td>{{estancia.disponible}}</td>
+            <td><div *ngIf="estancia.disponible; else NoPri">Activo</div>
+                <ng-template #NoPri>Inactivo</ng-template></td>
             <td>{{estancia.complementos}}</td>
             <td><a routerLink="../{{estancia.id}}" (click)="ver()" class="estancia-ver btn btn-block btn-info mr-3 mb-1">Consultar</a>
                 <a routerLink="../{{estancia.id}}" class="estancia-modificar btn btn-block btn-primary">Modificar</a></td>

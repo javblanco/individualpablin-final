@@ -1,6 +1,6 @@
 import { TestBed } from '@angular/core/testing';
 import { of } from 'rxjs';
-import { TipoProducto } from '../model/tipoProducto';
+import { TipoEstancia } from '../model/tipoEstancia';
 
 import { TipoProductoService } from './tipo-producto.service';
 
@@ -9,7 +9,7 @@ describe('TipoProductoService', () => {
 
   let httpClientSpy: { get: jasmine.Spy };
 
-  const tipos: TipoProducto[] = [
+  const tipos: TipoEstancia[] = [
     {id:1, nombre: 'Cafetera', descripcion: 'Máquina que hace café', activo: true},
     {id:2, nombre: 'Bolígrafo', descripcion: 'Sirve para escribir', activo: true},
     {id:3, nombre: 'Goma', descripcion: 'Sirve para borrar algo que se ha apuntado', activo: true},

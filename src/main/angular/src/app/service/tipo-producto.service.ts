@@ -2,7 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
-import { TipoProducto } from '../model/tipoProducto';
+import { TipoEstancia } from '../model/tipoEstancia';
 
 @Injectable({
   providedIn: 'root'
@@ -19,22 +19,22 @@ export class TipoProductoService {
 
   constructor(private http: HttpClient) { }
 
-  getTipos(): Observable<TipoProducto[]> {
+  getTipos(): Observable<TipoEstancia[]> {
 
-    return this.http.get<TipoProducto[]>(this.url);
+    return this.http.get<TipoEstancia[]>(this.url);
   }
 
-  getTipo(id: number): Observable<TipoProducto> {
+  getTipo(id: number): Observable<TipoEstancia> {
     const idUrl = `${this.url}/${id}`;
     
-    return this.http.get<TipoProducto>(idUrl);
+    return this.http.get<TipoEstancia>(idUrl);
   }
 
-  crearTipo(tipo: TipoProducto): Observable<TipoProducto> {
-    return this.http.post<TipoProducto>(this.url, tipo, this.options);
+  crearTipo(tipo: TipoEstancia): Observable<TipoEstancia> {
+    return this.http.post<TipoEstancia>(this.url, tipo, this.options);
   }
 
-  modificarTipo(tipo: TipoProducto): Observable<any> {
+  modificarTipo(tipo: TipoEstancia): Observable<any> {
     return this.http.put<any>(this.url, tipo, this.options);
   }
 
@@ -58,9 +58,9 @@ export class TipoProductoService {
     this.lectura = false;
   }
 
-  getTiposActivos(): Observable<TipoProducto[]> {
+  getTiposActivos(): Observable<TipoEstancia[]> {
     const activoUrl = `${this.url}`;
 
-    return this.http.get<TipoProducto[]>(activoUrl);
+    return this.http.get<TipoEstancia[]>(activoUrl);
   }
 }

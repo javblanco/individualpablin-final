@@ -1,4 +1,4 @@
-export interface TipoProducto {
+export interface TipoEstancia {
     id: number;
     nombre: string;
     descripcion: string;
