@@ -19,17 +19,17 @@ public class EstanciaHelper {
 		Estancia e = new Estancia();
 
 		e.setId(dto.getId());
-		e.setNumPuerta(dto.getNumPuerta());
-		e.setNumPlanta(dto.getNumPlanta());
-		e.setCapacidadMaxHabitantes(dto.getCapacidadMaxHabitantes());
-		e.setMetrosCuadrados(dto.getMetrosCuadrados());
+		e.setPuerta(dto.getPuerta());
+		e.setPlanta(dto.getPlanta());
+		e.setPlazas(dto.getPlazas());
+		e.setSuperficie(dto.getSuperficie());
 		e.setNombre(dto.getNombre());
-		e.setMiniBar(dto.isMiniBar());
-		e.setAireAcondicionado(dto.isAireAcondicionado());
+		e.setMinibar(dto.isMinibar());
+		e.setAireacondicionado(dto.isAireacondicionado());
 		e.setParking(dto.isParking());
 		e.setJacuzzi(dto.isJacuzzi());
 		e.setDisponible(dto.isDisponible());
-		e.setListaComplementosExtras(dto.getListaComplementosExtras());
+		e.setComplementos(dto.getComplementos());
 
 		if (tipoEstancia != null) {
 			e.setTipoEstancia(tipoEstancia);
@@ -44,17 +44,17 @@ public class EstanciaHelper {
 		EstanciaDto eDto = new EstanciaDto();
 		
 		eDto.setId(e.getId());
-		eDto.setNumPuerta(e.getNumPuerta());
-		eDto.setNumPlanta(e.getNumPlanta());
-		eDto.setCapacidadMaxHabitantes(e.getCapacidadMaxHabitantes());
-		eDto.setMetrosCuadrados(e.getMetrosCuadrados());
+		eDto.setPuerta(e.getPuerta());
+		eDto.setPlanta(e.getPlanta());
+		eDto.setPlazas(e.getPlazas());
+		eDto.setSuperficie(e.getSuperficie());
 		eDto.setNombre(e.getNombre());
-		eDto.setMiniBar(e.isMiniBar());
-		eDto.setAireAcondicionado(e.isAireAcondicionado());
+		eDto.setMinibar(e.isMinibar());
+		eDto.setAireacondicionado(e.isAireacondicionado());
 		eDto.setParking(e.isParking());
 		eDto.setJacuzzi(e.isJacuzzi());
 		eDto.setDisponible(e.isDisponible());
-		eDto.setListaComplementosExtras(e.getListaComplementosExtras());
+		eDto.setComplementos(e.getComplementos());
 
 		if (e.getTipoEstancia() != null) {
 			eDto.setIdTipoEstancia(e.getTipoEstancia().getId());
@@ -76,17 +76,16 @@ public class EstanciaHelper {
 		if (dto.getTipoEstancia() != null) {
 			estancia.setTipoEstancia(dto.getTipoEstancia());
 		}
-		if (dto.getListaComplementosExtras() != null) {
-			estancia.setListaComplementosExtras(dto.getListaComplementosExtras());
+		if (dto.getComplementos() != null) {
+			estancia.setComplementos(dto.getComplementos());
 		}
 		
-		
-		estancia.setNumPuerta(dto.getNumPuerta());
-		estancia.setNumPlanta(dto.getNumPlanta());
-		estancia.setCapacidadMaxHabitantes(dto.getCapacidadMaxHabitantes());
-		estancia.setMetrosCuadrados(dto.getMetrosCuadrados());
-		estancia.setMiniBar(dto.isMiniBar());
-		estancia.setAireAcondicionado(dto.isAireAcondicionado());
+		estancia.setPuerta(dto.getPuerta());
+		estancia.setPlanta(dto.getPlanta());
+		estancia.setPlazas(dto.getPlazas());
+		estancia.setSuperficie(dto.getSuperficie());
+		estancia.setMinibar(dto.isMinibar());
+		estancia.setAireacondicionado(dto.isAireacondicionado());
 		estancia.setParking(dto.isParking());
 		estancia.setJacuzzi(dto.isJacuzzi());
 		estancia.setDisponible(dto.isDisponible());
