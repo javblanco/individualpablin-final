@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import es.cic.bootcamp.curso12final.dto.EstanciaDto;
 import es.cic.bootcamp.curso12final.exception.CreateEstanciaException;
+import es.cic.bootcamp.curso12final.exception.CreateTipoEstanciaException;
 import es.cic.bootcamp.curso12final.helper.EstanciaHelper;
 import es.cic.bootcamp.curso12final.model.Estancia;
 import es.cic.bootcamp.curso12final.model.TipoEstancia;
@@ -100,5 +101,38 @@ public class EstanciaService {
 	public void delete(Long id) {
 		estanciaRepository.deleteById(id);
 	}
+
+	public void darDeBaja(Long id) {
+		Optional<Estancia> optional = estanciaRepository.findById(id);
+		Estancia estancia = null;
+
+		if (optional.isPresent()) {
+			estancia = optional.get();
+		} else {
+			throw new CreateTipoEstanciaException("No se puedo realizar la operación de dar de baja correctamente.");
+		}
+		if (estancia.isDisponible()) {
+			estancia.setDisponible(false);
+		} else {
+			throw new CreateTipoEstanciaException("ya estaba dado de baja");
+		}
+	}
+
+	public void darDeAlta(Long id) {
+		Optional<Estancia> optional = estanciaRepository.findById(id);
+		Estancia estancia = new Estancia();
+
+		if (optional.isPresent()) {
+			estancia = optional.get();
+		} else {
+			throw new CreateTipoEstanciaException("No se puedo realizar la operación de dar de alta correctamente.");
+		}
+		if (!estancia.isDisponible()) {
+			estancia.setDisponible(true);
+		} else {
+			throw  new CreateTipoEstanciaException("Ya estaba dado de alta el estancia");
+		}
+	}
+	
 	
 }

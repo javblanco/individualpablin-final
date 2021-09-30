@@ -29,14 +29,14 @@ public class EstanciaController {
 	
 
 	@Autowired
-	private EstanciaService estanciaServicio;
+	private EstanciaService estanciaService;
 	
 	@ResponseStatus(HttpStatus.CREATED)
 	@PostMapping
 	public Long create(@Valid @RequestBody EstanciaDto dto) {
 		LOGGER.info("Recibida una request para crear una nueva estancia.");
 		
-		return estanciaServicio.create(dto);
+		return estanciaService.create(dto);
 		
 	}
 	
@@ -44,26 +44,38 @@ public class EstanciaController {
 	public List<EstanciaDto> list() {
 		LOGGER.info("Recibida una request para listar las  estancias.");
 		
-		return estanciaServicio.list();
+		return estanciaService.list();
 		
 	}
 	
 	@GetMapping("/{id}")
 	public EstanciaDto read(@PathVariable(required = true, name = "id") Long id) {
 		LOGGER.info("Recibida una request para leer una estancia");
-		return estanciaServicio.read(id);
+		return estanciaService.read(id);
 	}
 	
 	@PutMapping
 	public void update(@Valid @RequestBody EstanciaDto dto) {
 		LOGGER.info("Recibida una request para editar una estancia.");
-		estanciaServicio.update(dto);
+		estanciaService.update(dto);
 	}
 	
 	@DeleteMapping("/{id}")
 	public void delete(@PathVariable(required = true, name = "id") Long id) {
 		LOGGER.info("Recibida una request para eliminar una estancia.");
-		estanciaServicio.delete(id);
+		estanciaService.delete(id);
+	}
+	
+	@PostMapping("/desactivar/{id}")
+	public void darDeBaja(@PathVariable(required = true, name = "id") Long id) {
+		LOGGER.info("Recibida una solicitud para desactivar un tipo de estancia");
+		estanciaService.darDeBaja(id);
+	}
+
+	@PostMapping("/activar/{id}")
+	public void darDeAlta(@PathVariable(required = true, name = "id") Long id) {
+		LOGGER.info("Recibida una solicitud para activar un tipo de estancia");
+		estanciaService.darDeAlta(id);
 	}
 	
 }

@@ -73,7 +73,7 @@ public class TipoEstanciaService {
 		} else {
 			throw new CreateTipoEstanciaException("No se puedo realizar la operación de dar de baja correctamente.");
 		}
-		if (tipoEstancia.isActivo() == true) {
+		if (tipoEstancia.isActivo()) {
 			tipoEstancia.setActivo(false);
 		} else {
 			throw new CreateTipoEstanciaException("ya estaba dado de baja");
@@ -89,7 +89,7 @@ public class TipoEstanciaService {
 		} else {
 			throw new CreateTipoEstanciaException("No se puedo realizar la operación de dar de alta correctamente.");
 		}
-		if (tipoEstancia.isActivo() == false) {
+		if (!tipoEstancia.isActivo()) {
 			tipoEstancia.setActivo(true);
 		} else {
 			throw  new CreateTipoEstanciaException("Ya estaba dado de alta el estancia");
